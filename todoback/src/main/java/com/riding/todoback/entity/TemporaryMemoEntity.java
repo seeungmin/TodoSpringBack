@@ -16,7 +16,6 @@ import java.time.LocalDateTime;
 public class TemporaryMemoEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     LocalDateTime regularTime;
     String content;
