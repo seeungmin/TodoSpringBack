@@ -20,8 +20,9 @@ public class SaveCashBoardBean {
     BoardRepositoryJPA boardRepositoryJPA;
 
     // 스티커보드 데이터 캐시로 받기
+    // @Casheable 필요없음
     @Cacheable(value = "data")
-    public BoardEntity saveCash(long id){
+    public BoardEntity exec(long id){
         return boardRepositoryJPA.findById(id).orElseThrow(()-> new NullPointerException("uu"));
     }
 

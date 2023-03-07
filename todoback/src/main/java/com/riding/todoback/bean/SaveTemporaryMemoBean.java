@@ -27,8 +27,8 @@ public class SaveTemporaryMemoBean {
         this.boardRepositoryJPA = boardRepositoryJPA;
     }
 
+    // 스케쥴링은 나중에 하자
     // 스케쥴링해서 데이터 10초마다 저장
-    @Scheduled(fixedRate = 10000)
     public void exec(){
         // 아이디 생성
         long id = generateUniqueIdBean.exec();
