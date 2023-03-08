@@ -41,7 +41,7 @@ public class SaveBoardBean {
         LocalDateTime time = LocalDateTime.now();
 
         // 일부 데이터 캐시로 저장
-        String cashData = saveCashBoardBean.exec(id).getContent().substring(0,9); // 나눌 수 있음
+        String cashData =saveCashBoardBean.exec(input);
 
         // 스토리보드 데이터 저장
         CashBoardEntity cashBoardEntity = new CashBoardEntity(id, time, cashData);

@@ -10,10 +10,5 @@ public class GenerateUniqueIdBean {
         GenerateUniqueIdBean generateUniqueIdBean = new GenerateUniqueIdBean();
         return generateUniqueIdBean.hashCode();
     }
-/*    public long exec(int type){
-        if(type ==0){
-            return 0l;
-        }
-        return 1l;
-    }*/
+
 }
