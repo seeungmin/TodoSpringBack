@@ -29,7 +29,7 @@ public class SaveTodoBean {
         LocalDateTime time = LocalDateTime.now();
 
         // 데이터 저장
-        TodoEntity todoEntity = new TodoEntity(id, time, input, input2);
+        TodoEntity todoEntity = new TodoEntity(id, time, input);
         todoRepositoryJPA.save(todoEntity);
     }
 }

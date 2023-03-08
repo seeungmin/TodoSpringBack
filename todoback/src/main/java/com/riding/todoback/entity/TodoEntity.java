@@ -17,5 +17,4 @@ public class TodoEntity {
     private long id;
     LocalDateTime uploadTime;
     String content;
-    String completionStatus; // enum 클래스 만들기
 }
