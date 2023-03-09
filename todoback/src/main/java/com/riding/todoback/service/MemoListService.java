@@ -1,7 +1,7 @@
 package com.riding.todoback.service;
 
 import com.riding.todoback.bean.SaveBoardBean;
-import com.riding.todoback.bean.SaveTemporaryMemoBean;
+import com.riding.todoback.bean.test.SaveTemporaryMemoBean;
 import com.riding.todoback.bean.Small.SaveCashBoardBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

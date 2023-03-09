@@ -33,18 +33,19 @@ public class SaveBoardBean {
         // 아이디 생성
         long id = generateUniqueIdBean.exec();
 
-        // 메모장 데이터 저장
-        BoardEntity boardEntity = new BoardEntity(id, input);
-        boardRepositoryJPA.save(boardEntity);
-
         // 시간 생성
         LocalDateTime time = LocalDateTime.now();
+
+        // 메모장 데이터 저장
+        BoardEntity boardEntity = new BoardEntity(id, input, time);
+        boardRepositoryJPA.save(boardEntity);
+
 
         // 일부 데이터 캐시로 저장
         String cashData =saveCashBoardBean.exec(input);
 
         // 스토리보드 데이터 저장
-        CashBoardEntity cashBoardEntity = new CashBoardEntity(id, time, cashData);
+        CashBoardEntity cashBoardEntity = new CashBoardEntity(id, cashData, time);
         cashBoardRepositoryJPA.save(cashBoardEntity);
     }
 

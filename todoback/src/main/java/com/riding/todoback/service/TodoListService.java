@@ -1,7 +1,7 @@
 package com.riding.todoback.service;
 
 import com.riding.todoback.bean.Small.SaveTodoBean;
-import com.riding.todoback.bean.Small.SaveFinishedTodoBean;
+import com.riding.todoback.bean.SaveFinishedTodoBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,12 +18,12 @@ public class TodoListService {
     }
 
     // 할 일 데이터 저장
-    public void saveTodoEntity(String input, String input2){
-        saveTodoBean.exec(input, input2);
+    public void saveTodoEntity(String input){
+        saveTodoBean.exec(input);
     }
 
     // 다 한 일 데이터 저장
-    public void saveFinishedTodoEntity(String input){
-        saveFinishedTodoBean.exec(input);
+    public void saveFinishedTodoEntity(long id){
+        saveFinishedTodoBean.exec(id);
     }
 }
