@@ -27,6 +27,7 @@ public class SaveBoardBean {
         this.cashBoardRepositoryJPA = cashBoardRepositoryJPA;
     }
 
+    // 아이디를 입력받고 쿼리문으로 데이터 찾아보는과정을 넣으면 되려나?
     // 메모장 데이터와 스토리보드 캐시 데이터 저장
     public void exec(String input){
 
