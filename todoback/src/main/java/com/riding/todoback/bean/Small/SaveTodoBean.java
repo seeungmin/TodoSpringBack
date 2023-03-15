@@ -20,7 +20,7 @@ public class SaveTodoBean {
     }
 
     // 할 일 데이터 저장
-    public void exec(String input){
+    public long exec(String input){
 
         // 아이디 생성
         long id = generateUniqueIdBean.exec();
@@ -31,5 +31,7 @@ public class SaveTodoBean {
         // 데이터 저장
         TodoEntity todoEntity = new TodoEntity(id, input, time);
         todoRepositoryJPA.save(todoEntity);
+
+        return id;
     }
 }

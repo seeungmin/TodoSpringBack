@@ -24,8 +24,8 @@ public class TodoListService {
     }
 
     // 할 일 데이터 저장
-    public void saveTodoEntity(String input){
-        saveTodoBean.exec(input);
+    public long saveTodoEntity(String input){
+        return saveTodoBean.exec(input);
     }
 
     // 다 한 일 데이터 저장
