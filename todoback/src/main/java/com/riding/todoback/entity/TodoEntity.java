@@ -11,6 +11,11 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TodoEntity {
+
+    @Id
+    private long id;
+    String content;
+    LocalDateTime uploadTime;
     public long getId() {
         return id;
     }
@@ -34,10 +39,5 @@ public class TodoEntity {
     public void setUploadTime(LocalDateTime uploadTime) {
         this.uploadTime = uploadTime;
     }
-
-    @Id
-    private long id;
-    String content;
-    LocalDateTime uploadTime;
 
 }
