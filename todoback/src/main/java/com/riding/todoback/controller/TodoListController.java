@@ -21,8 +21,21 @@ public class TodoListController {
 
     // 다 한 일 입력 후 저장
     @GetMapping("finishTodo/{id}")
-    public void finishedTodoInput(@PathVariable long id){
+    public long finishedTodoInput(@PathVariable long id){
         todoListService.saveFinishedTodoEntity(id);
+        return id;
     }
 
+
+    // 할 일 삭제
+    @GetMapping("todoDelete/{id}")
+    public void todoDelete(@PathVariable long id){
+        todoListService.deleteTodoEntity(id);
+    }
+
+    // 다 한 일 삭제
+    @GetMapping("finishTodoDelete/{id}")
+    public void finishedTodoDelete(@PathVariable long id){
+        todoListService.deleteFinishedTodoEntity(id);
+    }
 }

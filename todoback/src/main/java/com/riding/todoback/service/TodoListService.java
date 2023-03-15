@@ -1,5 +1,7 @@
 package com.riding.todoback.service;
 
+import com.riding.todoback.bean.Small.DeleteFinishedTodoBean;
+import com.riding.todoback.bean.Small.DeleteTodoBean;
 import com.riding.todoback.bean.Small.SaveTodoBean;
 import com.riding.todoback.bean.SaveFinishedTodoBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +12,15 @@ public class TodoListService {
 
     SaveTodoBean saveTodoBean;
     SaveFinishedTodoBean saveFinishedTodoBean;
+    DeleteTodoBean deleteTodoBean;
+    DeleteFinishedTodoBean deleteFinishedTodoBean;
 
     @Autowired
-    public TodoListService(SaveTodoBean saveTodoBean, SaveFinishedTodoBean saveFinishedTodoBean) {
+    public TodoListService(SaveTodoBean saveTodoBean, SaveFinishedTodoBean saveFinishedTodoBean, DeleteTodoBean deleteTodoBean, DeleteFinishedTodoBean deleteFinishedTodoBean) {
         this.saveTodoBean = saveTodoBean;
         this.saveFinishedTodoBean = saveFinishedTodoBean;
+        this.deleteTodoBean = deleteTodoBean;
+        this.deleteFinishedTodoBean = deleteFinishedTodoBean;
     }
 
     // 할 일 데이터 저장
@@ -26,4 +32,15 @@ public class TodoListService {
     public void saveFinishedTodoEntity(long id){
         saveFinishedTodoBean.exec(id);
     }
+
+    // 할 일 삭제
+    public void deleteTodoEntity(long id){
+        deleteTodoBean.exec(id);
+    }
+
+    //다 한 일 삭제
+    public void deleteFinishedTodoEntity(long id){
+        deleteFinishedTodoBean.exec(id);
+    }
+
 }
