@@ -1,4 +1,4 @@
-package com.riding.todoback.controller;
+package com.riding.todoback.controller.test;
 
 import com.riding.todoback.model.UserProfile;
 import org.springframework.stereotype.Controller;
@@ -55,6 +55,12 @@ public class UserProfileController {
     @ResponseBody
     public void deleteUserProfile(@PathVariable("id") String id){
         userMap.remove(id);
+    }
+
+    @GetMapping("memo")
+    public String memoWrite(){
+
+        return "memo";
     }
 }
 
