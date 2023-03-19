@@ -27,16 +27,10 @@ public class BoardController {
     }
 
 
-    /*@PostMapping("/postMethod")
-    @ResponseBody
-    public BoardEntity postMethod(@RequestBody BoardEntity boardEntity) {
-        return boardEntity;
-    }*/
-
     // 메모 detail 조회
-    @GetMapping("detailBoard/{id}")
+    @PostMapping("detailBoard")
     @ResponseBody
-    public BoardEntity inquireDetailBoard(@PathVariable long id){
+    public BoardEntity inquireDetailBoard(@RequestParam("id") long id){
         return memoListService.inquireBoardEntity(id);
     }
 }
