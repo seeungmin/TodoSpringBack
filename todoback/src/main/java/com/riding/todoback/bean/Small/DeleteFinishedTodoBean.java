@@ -14,11 +14,12 @@ public class DeleteFinishedTodoBean {
     FinishedTodoRepositoryJPA finishedTodoRepositoryJPA;
 
     // 다 한 일 삭제
-    public void exec(long id){
+    public boolean exec(long id){
         // 다 한일 데이터 받기
         FinishedTodoEntity finishedTodoEntity = finishedTodoRepositoryJPA.findById(id).get();
 
         // 받은 데이터 삭제
         finishedTodoRepositoryJPA.delete(finishedTodoEntity);
+        return true;
     }
 }

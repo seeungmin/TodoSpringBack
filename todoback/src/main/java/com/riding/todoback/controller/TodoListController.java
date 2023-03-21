@@ -1,7 +1,11 @@
 package com.riding.todoback.controller;
 
+import com.riding.todoback.model.RequestFinishTodoDelete;
+import com.riding.todoback.model.RequestTodoDelete;
 import com.riding.todoback.service.TodoListService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -61,30 +65,31 @@ public class TodoListController {
 
     // 휴지통 기능이 있어도 괜찮을거 같은데?
     // 할 일 삭제
-    @GetMapping("todoDelete/{id}")
-    public void todoDelete(@PathVariable long id){
-        todoListService.deleteTodoEntity(id);
-    }
-
-    @PostMapping("todoDelete0")
+    @PostMapping("todoDelete")
     @ResponseBody
-    public void todoDelete0(@RequestParam("id") long id){
-        todoListService.deleteTodoEntity(id);
+    public ResponseEntity<String> todoDelete(@RequestBody RequestTodoDelete requestTodoDelete){
+        boolean delete = todoListService.deleteTodoEntity(Long.parseLong(requestTodoDelete.getId()));
+
+        if(delete){
+            return ResponseEntity.ok("delete success");
+        }
+        else{
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("fail");
+        }
     }
-
-
-
 
 
     // 다 한 일 삭제
-    @GetMapping("finishTodoDelete/{id}")
-    public void finishedTodoDelete(@PathVariable long id){
-        todoListService.deleteFinishedTodoEntity(id);
-    }
-
-    @PostMapping("finishTodoDelete0")
+    @PostMapping("finishTodoDelete")
     @ResponseBody
-    public void finishedTodoDelete0(@RequestParam("id") long id){
-        todoListService.deleteFinishedTodoEntity(id);
+    public ResponseEntity<String> finishedTodoDelete(@RequestBody RequestFinishTodoDelete requestFinishTodoDelete){
+        boolean delete = todoListService.deleteFinishedTodoEntity(Long.parseLong(requestFinishTodoDelete.getId()));
+
+        if(delete){
+            return ResponseEntity.ok("delete success");
+        }
+        else{
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("fail");
+        }
     }
 }

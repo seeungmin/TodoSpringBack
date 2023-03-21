@@ -42,13 +42,14 @@ public class TodoListService {
     }
 
     // 할 일 삭제
-    public void deleteTodoEntity(long id){
-        deleteTodoBean.exec(id);
+    public boolean deleteTodoEntity(long id){
+        return deleteTodoBean.exec(id);
     }
 
     //다 한 일 삭제
-    public void deleteFinishedTodoEntity(long id){
-        deleteFinishedTodoBean.exec(id);
+    public boolean deleteFinishedTodoEntity(long id){
+        return deleteFinishedTodoBean.exec(id);
+
     }
 
 }
