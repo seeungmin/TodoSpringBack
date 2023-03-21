@@ -1,4 +1,4 @@
-package com.riding.todoback.bean.Small;
+package com.riding.todoback.bean;
 
 import com.riding.todoback.entity.CashBoardEntity;
 import com.riding.todoback.repository.CashBoardRepositoryJPA;

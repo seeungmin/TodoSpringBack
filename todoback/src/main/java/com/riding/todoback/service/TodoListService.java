@@ -1,9 +1,9 @@
 package com.riding.todoback.service;
 
-import com.riding.todoback.bean.Small.DeleteFinishedTodoBean;
-import com.riding.todoback.bean.Small.DeleteTodoBean;
-import com.riding.todoback.bean.Small.ModifyTodoBean;
-import com.riding.todoback.bean.Small.SaveTodoBean;
+import com.riding.todoback.bean.DeleteFinishedTodoBean;
+import com.riding.todoback.bean.DeleteTodoBean;
+import com.riding.todoback.bean.ModifyTodoBean;
+import com.riding.todoback.bean.SaveTodoBean;
 import com.riding.todoback.bean.SaveFinishedTodoBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

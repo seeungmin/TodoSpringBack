@@ -1,10 +1,10 @@
 package com.riding.todoback.service;
 
 import com.riding.todoback.bean.SaveBoardBean;
-import com.riding.todoback.bean.Small.InquireDetailBoardBean;
-import com.riding.todoback.bean.Small.InquirePreviewCashBoardBean;
+import com.riding.todoback.bean.InquireDetailBoardBean;
+import com.riding.todoback.bean.InquirePreviewCashBoardBean;
 import com.riding.todoback.bean.test.SaveTemporaryMemoBean;
-import com.riding.todoback.bean.Small.SaveCashBoardBean;
+import com.riding.todoback.bean.SaveCashBoardBean;
 import com.riding.todoback.entity.BoardEntity;
 import com.riding.todoback.entity.CashBoardEntity;
 import org.springframework.beans.factory.annotation.Autowired;

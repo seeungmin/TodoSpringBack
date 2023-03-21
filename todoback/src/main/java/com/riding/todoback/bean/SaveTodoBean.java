@@ -1,5 +1,6 @@
-package com.riding.todoback.bean.Small;
+package com.riding.todoback.bean;
 
+import com.riding.todoback.bean.Small.GenerateUniqueIdBean;
 import com.riding.todoback.entity.TodoEntity;
 import com.riding.todoback.repository.TodoRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;
