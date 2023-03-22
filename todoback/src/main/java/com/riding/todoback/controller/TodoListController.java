@@ -1,15 +1,15 @@
 package com.riding.todoback.controller;
 
-import com.riding.todoback.model.RequestFinishTodoDelete;
-import com.riding.todoback.model.RequestTodoDelete;
-import com.riding.todoback.model.RequestTodoInput;
-import com.riding.todoback.model.RequestTodoModify;
+import com.riding.todoback.model.*;
 import com.riding.todoback.service.TodoListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 @Controller
@@ -19,64 +19,52 @@ public class TodoListController {
     TodoListService todoListService;
 
     // 할 일 입력 후 저장
-    /*@GetMapping("todo/{input}")
-    @ResponseBody
-    public long todoInput(@PathVariable String input){
-        return todoListService.saveTodoEntity(input);
-    }*/
-
     @PostMapping("todo")
     @ResponseBody
-    public ResponseEntity<String> todoInput(@RequestBody RequestTodoInput requestTodoInput){
-        boolean create = todoListService.saveTodoEntity(requestTodoInput.getContent());
+    public ResponseEntity<Map<String, Object>> todoInput(@RequestBody RequestTodoInput requestTodoInput){
+        Long id = todoListService.saveTodoEntity(requestTodoInput.getContent());
 
-        if(create){
-            return ResponseEntity.status(HttpStatus.OK).body("Create Success");
-        }
-        else {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Create Fail");
-        }
+        HttpStatus httpStatus = (id != null) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
+
+        Map<String, Object> requestMap = new HashMap<>();
+        requestMap.put("message", (id != null) ? "Create Success" : "Create Fail");
+        requestMap.put("id", id);
+
+        return ResponseEntity.status(httpStatus).body(requestMap);
 
     }
 
 
 
     // 다 한 일 입력 후 저장
-    @GetMapping("finishTodo/{id}")
+    @PostMapping("finishTodo")
     @ResponseBody
-    public long finishedTodoInput(@PathVariable long id){
-        todoListService.saveFinishedTodoEntity(id);
-        return id;
-    }
+    public ResponseEntity<Map<String, Object>> finishedTodoInput(@RequestBody RequestFinishTodoInput requestFinishTodoInput){
+        Long id = requestFinishTodoInput.getId();
 
-    @PostMapping("finishTodo0")
-    @ResponseBody
-    public long finishedTodoInput0(@RequestParam("id") long id){
         todoListService.saveFinishedTodoEntity(id);
-        return id;
+
+        HttpStatus httpStatus = (id != null) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
+
+        Map<String, Object> requestMap = new HashMap<>();
+        requestMap.put("message", (id != null) ? "Create Success" : "Create Fail");
+        requestMap.put("id", id);
+
+        return ResponseEntity.status(httpStatus).body(requestMap);
     }
 
 
 
 
     // 할 일 데이터 수정
-    @GetMapping("modifyTodo/{id}")
-    public void todoModify(@PathVariable long id, @RequestParam("input") String input ){
-        todoListService.modifyTodoEntity(id, input);
-    }
-
     @PostMapping("modifyTodo")
     @ResponseBody
     public ResponseEntity<String> todoModify(@RequestBody RequestTodoModify requestTodoModify){
-
         boolean modify = todoListService.modifyTodoEntity(requestTodoModify.getId(), requestTodoModify.getContent());
 
-        if(modify){
-            return ResponseEntity.ok("Modify Success");
-        }
-        else{
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Modify Fail");
-        }
+        HttpStatus httpStatus = modify ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
+
+        return ResponseEntity.status(httpStatus).body(modify ? "Create Success" : "Create Fail");
     }
 
 
@@ -89,12 +77,9 @@ public class TodoListController {
     public ResponseEntity<String> todoDelete(@RequestBody RequestTodoDelete requestTodoDelete){
         boolean delete = todoListService.deleteTodoEntity(Long.parseLong(requestTodoDelete.getId()));
 
-        if(delete){
-            return ResponseEntity.ok("Delete Success");
-        }
-        else{
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Delete Fail");
-        }
+        HttpStatus httpStatus = delete ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
+
+        return ResponseEntity.status(httpStatus).body(delete ? "Delete Success" : "Delete Fail");
     }
 
 
@@ -104,11 +89,9 @@ public class TodoListController {
     public ResponseEntity<String> finishedTodoDelete(@RequestBody RequestFinishTodoDelete requestFinishTodoDelete){
         boolean delete = todoListService.deleteFinishedTodoEntity(Long.parseLong(requestFinishTodoDelete.getId()));
 
-        if(delete){
-            return ResponseEntity.ok("Delete Success");
-        }
-        else{
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Delete Fail");
-        }
+        HttpStatus httpStatus = delete ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
+
+        return ResponseEntity.status(httpStatus).body(delete ? "Delete Success" : "Delete Fail");
+
     }
 }

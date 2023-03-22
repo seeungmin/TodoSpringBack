@@ -32,7 +32,6 @@ public class SaveTodoBean {
         // 데이터 저장
         TodoEntity todoEntity = new TodoEntity(id, input, time);
         todoRepositoryJPA.save(todoEntity);
-
         return id;
     }
 }

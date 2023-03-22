@@ -1,2 +1,8 @@
-package com.riding.todoback.model;public class RequestFinishTodoInput {
+package com.riding.todoback.model;
+
+import lombok.Data;
+
+@Data
+public class RequestFinishTodoInput {
+    Long id;
 }
