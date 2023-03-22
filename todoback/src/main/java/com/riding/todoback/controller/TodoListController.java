@@ -22,7 +22,7 @@ public class TodoListController {
         return todoListService.saveTodoEntity(input);
     }
 
-    @PostMapping("todo0")
+    @PostMapping("todo")
     @ResponseBody
     public long todoInput0(@RequestParam("content") String content){
         return todoListService.saveTodoEntity(content);

@@ -2,11 +2,11 @@ package com.riding.todoback.service;
 
 import com.riding.todoback.bean.SaveBoardBean;
 import com.riding.todoback.bean.InquireDetailBoardBean;
-import com.riding.todoback.bean.InquirePreviewCashBoardBean;
+import com.riding.todoback.bean.ShowPreviewCashBoardBean;
 import com.riding.todoback.bean.test.SaveTemporaryMemoBean;
 import com.riding.todoback.bean.SaveCashBoardBean;
 import com.riding.todoback.entity.BoardEntity;
-import com.riding.todoback.entity.CashBoardEntity;
+import com.riding.todoback.model.RequestPreviewCashBoardAll;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,15 +19,15 @@ public class MemoListService {
     SaveBoardBean saveBoardBean;
     SaveTemporaryMemoBean saveTemporaryMemoBean;
     InquireDetailBoardBean inquireDetailBoardBean;
-    InquirePreviewCashBoardBean inquirePreviewCashBoardBean;
+    ShowPreviewCashBoardBean showPreviewCashBoardBean;
 
     @Autowired
-    public MemoListService(SaveCashBoardBean saveCashBoardBean, SaveBoardBean saveBoardBean, SaveTemporaryMemoBean saveTemporaryMemoBean, InquireDetailBoardBean inquireDetailBoardBean, InquirePreviewCashBoardBean inquirePreviewCashBoardBean) {
+    public MemoListService(SaveCashBoardBean saveCashBoardBean, SaveBoardBean saveBoardBean, SaveTemporaryMemoBean saveTemporaryMemoBean, InquireDetailBoardBean inquireDetailBoardBean, ShowPreviewCashBoardBean showPreviewCashBoardBean) {
         this.saveCashBoardBean = saveCashBoardBean;
         this.saveBoardBean = saveBoardBean;
         this.saveTemporaryMemoBean = saveTemporaryMemoBean;
         this.inquireDetailBoardBean = inquireDetailBoardBean;
-        this.inquirePreviewCashBoardBean = inquirePreviewCashBoardBean;
+        this.showPreviewCashBoardBean = showPreviewCashBoardBean;
     }
 
 
@@ -37,8 +37,8 @@ public class MemoListService {
     }
 
     // 메모장 preview 조회
-    public List<CashBoardEntity> inquireCashBoardEntity(){
-       return inquirePreviewCashBoardBean.exec();
+    public List<RequestPreviewCashBoardAll> allCashBoardEntity(){
+       return showPreviewCashBoardBean.exec();
     }
 
     // 메모장 detail 조회
