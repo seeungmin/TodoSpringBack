@@ -32,8 +32,8 @@ public class MemoListService {
 
 
     // 메모장 데이터 저장
-    public void saveBoardEntity(String input){
-        saveBoardBean.exec(input);
+    public boolean saveBoardEntity(String input){
+        return saveBoardBean.exec(input);
     }
 
     // 메모장 preview 조회

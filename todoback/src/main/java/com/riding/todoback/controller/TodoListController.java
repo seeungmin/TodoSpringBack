@@ -71,10 +71,10 @@ public class TodoListController {
         boolean delete = todoListService.deleteTodoEntity(Long.parseLong(requestTodoDelete.getId()));
 
         if(delete){
-            return ResponseEntity.ok("delete success");
+            return ResponseEntity.ok("Delete Success");
         }
         else{
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("fail");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Delete Fail");
         }
     }
 
@@ -86,10 +86,10 @@ public class TodoListController {
         boolean delete = todoListService.deleteFinishedTodoEntity(Long.parseLong(requestFinishTodoDelete.getId()));
 
         if(delete){
-            return ResponseEntity.ok("delete success");
+            return ResponseEntity.ok("Delete Success");
         }
         else{
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("fail");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Delete Fail");
         }
     }
 }
