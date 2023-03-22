@@ -27,7 +27,7 @@ public class TodoListService {
     }
 
     // 할 일 데이터 저장
-    public long saveTodoEntity(String input){
+    public boolean saveTodoEntity(String input){
         return saveTodoBean.exec(input);
     }
 
@@ -37,8 +37,8 @@ public class TodoListService {
     }
 
     // 할 일 데이터 수정
-    public void modifyTodoEntity(long id, String content){
-        modifyTodoBean.exec(id, content);
+    public boolean modifyTodoEntity(long id, String content){
+        return modifyTodoBean.exec(id, content);
     }
 
     // 할 일 삭제

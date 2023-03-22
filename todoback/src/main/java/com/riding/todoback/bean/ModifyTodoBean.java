@@ -14,7 +14,7 @@ public class ModifyTodoBean {
     TodoRepositoryJPA todoRepositoryJPA;
 
     // 할 일 데이터 수정
-    public void exec(long id, String content){
+    public boolean exec(long id, String content){
 
         // 아이디로 수정할 할 일 찾기
         TodoEntity todoEntity = todoRepositoryJPA.findById(id).get();
@@ -25,6 +25,7 @@ public class ModifyTodoBean {
 
         // 새로운 데이터 기존 아이디에 저장
         todoRepositoryJPA.save(todoEntity);
+        return true;
     }
 
 }

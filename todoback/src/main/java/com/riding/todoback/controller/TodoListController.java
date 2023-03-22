@@ -2,6 +2,8 @@ package com.riding.todoback.controller;
 
 import com.riding.todoback.model.RequestFinishTodoDelete;
 import com.riding.todoback.model.RequestTodoDelete;
+import com.riding.todoback.model.RequestTodoInput;
+import com.riding.todoback.model.RequestTodoModify;
 import com.riding.todoback.service.TodoListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,20 +14,29 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class TodoListController {
+
     @Autowired
     TodoListService todoListService;
 
     // 할 일 입력 후 저장
-    @GetMapping("todo/{input}")
+    /*@GetMapping("todo/{input}")
     @ResponseBody
     public long todoInput(@PathVariable String input){
         return todoListService.saveTodoEntity(input);
-    }
+    }*/
 
     @PostMapping("todo")
     @ResponseBody
-    public long todoInput0(@RequestParam("content") String content){
-        return todoListService.saveTodoEntity(content);
+    public ResponseEntity<String> todoInput(@RequestBody RequestTodoInput requestTodoInput){
+        boolean create = todoListService.saveTodoEntity(requestTodoInput.getContent());
+
+        if(create){
+            return ResponseEntity.status(HttpStatus.OK).body("Create Success");
+        }
+        else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Create Fail");
+        }
+
     }
 
 
@@ -54,10 +65,18 @@ public class TodoListController {
         todoListService.modifyTodoEntity(id, input);
     }
 
-    @PostMapping("modifyTodo0")
+    @PostMapping("modifyTodo")
     @ResponseBody
-    public void todoModify0(@RequestParam("id") long id, @RequestParam("content") String content){
-        todoListService.modifyTodoEntity(id, content);
+    public ResponseEntity<String> todoModify(@RequestBody RequestTodoModify requestTodoModify){
+
+        boolean modify = todoListService.modifyTodoEntity(requestTodoModify.getId(), requestTodoModify.getContent());
+
+        if(modify){
+            return ResponseEntity.ok("Modify Success");
+        }
+        else{
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Modify Fail");
+        }
     }
 
 
