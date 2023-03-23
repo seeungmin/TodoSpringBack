@@ -10,12 +10,9 @@
 {% swagger-response status="200: OK" description="조회 성공시 json으로 데이터 반환" %}
 ```
 {
-    {
-        "id": 유니크한 아이디,
-        "cashData": 메모 내용,
-        "uploadTime": 메모를 저장한 시간
-    }
-    ...
+    "id": 유니크한 아이디,
+    "cashData": 메모 내용,
+    "uploadTime": 메모를 저장한 시간
 }
 ```
 {% endswagger-response %}
@@ -32,7 +29,7 @@
 완료한 일로 옮길 할 일 아이디
 {% endswagger-parameter %}
 
-{% swagger-response status="200: OK" description="조회 성공시 json으로 데이터 반" %}
+{% swagger-response status="200: OK" description="조회 성공시 id 반" %}
 ```
 {
     "id": 유니크한 아이디,
