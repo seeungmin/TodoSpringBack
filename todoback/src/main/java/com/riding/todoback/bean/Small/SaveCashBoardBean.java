@@ -1,4 +1,4 @@
-package com.riding.todoback.bean;
+package com.riding.todoback.bean.Small;
 
 import org.springframework.stereotype.Component;
 

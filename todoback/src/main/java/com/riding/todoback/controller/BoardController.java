@@ -1,7 +1,6 @@
 package com.riding.todoback.controller;
 
-import com.riding.todoback.entity.BoardEntity;
-import com.riding.todoback.entity.CashBoardEntity;
+import com.riding.todoback.model.RequestDetailBoardInquire;
 import com.riding.todoback.model.RequestPreviewCashBoardAll;
 import com.riding.todoback.service.MemoListService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +30,7 @@ public class BoardController {
     // 메모 detail 조회
     @GetMapping("detailBoard")
     @ResponseBody
-    public BoardEntity inquireDetailBoard(@RequestParam("id") long id){
+    public RequestDetailBoardInquire inquireDetailBoard(@RequestParam("id") long id){
         return memoListService.inquireBoardEntity(id);
     }
 }

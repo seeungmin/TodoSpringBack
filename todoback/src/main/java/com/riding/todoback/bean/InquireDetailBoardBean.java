@@ -1,6 +1,7 @@
 package com.riding.todoback.bean;
 
 import com.riding.todoback.entity.BoardEntity;
+import com.riding.todoback.model.RequestDetailBoardInquire;
 import com.riding.todoback.repository.BoardRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -11,7 +12,19 @@ public class InquireDetailBoardBean {
     @Autowired
     BoardRepositoryJPA boardRepositoryJPA;
 
-    public BoardEntity exec(long id){
-        return boardRepositoryJPA.findById(id).get();
+    // 메모 내용 세부 조회
+    public RequestDetailBoardInquire exec(long id){
+
+        // 메모 아이디로 메모 객체 받아오기
+        BoardEntity boardEntity = boardRepositoryJPA.findById(id).get();
+
+        // DTO 객체에 메모 객체 넘기기
+        RequestDetailBoardInquire requestDetailBoardInquire = new RequestDetailBoardInquire();
+        requestDetailBoardInquire.setId(boardEntity.getId());
+        requestDetailBoardInquire.setContent(boardEntity.getContent());
+        requestDetailBoardInquire.setUploadTime(boardEntity.getUploadTime());
+
+        // DTO객체 반환
+        return requestDetailBoardInquire;
     }
 }

@@ -1,6 +1,7 @@
 package com.riding.todoback.bean;
 
 import com.riding.todoback.bean.Small.GenerateUniqueIdBean;
+import com.riding.todoback.bean.Small.SaveCashBoardBean;
 import com.riding.todoback.entity.BoardEntity;
 import com.riding.todoback.entity.CashBoardEntity;
 import com.riding.todoback.repository.BoardRepositoryJPA;

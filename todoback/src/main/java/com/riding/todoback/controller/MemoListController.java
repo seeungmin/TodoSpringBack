@@ -1,12 +1,10 @@
 package com.riding.todoback.controller;
 
-import com.riding.todoback.entity.BoardEntity;
 import com.riding.todoback.model.RequestBoardInput;
 import com.riding.todoback.service.MemoListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +22,8 @@ public class MemoListController {
     @ResponseBody
     public ResponseEntity<String> boardInput(@RequestBody RequestBoardInput requestBoardInput){
         boolean create = memoListService.saveBoardEntity(requestBoardInput.getContent());
+
+        // HTTP 상태 반환
         if(create){
             return ResponseEntity.ok("Create Success");
         }
