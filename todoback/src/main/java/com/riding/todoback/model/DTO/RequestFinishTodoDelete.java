@@ -1,4 +1,4 @@
-package com.riding.todoback.model;
+package com.riding.todoback.model.DTO;
 
 import lombok.Data;
 

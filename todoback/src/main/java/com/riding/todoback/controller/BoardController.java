@@ -1,7 +1,7 @@
 package com.riding.todoback.controller;
 
-import com.riding.todoback.model.RequestDetailBoardInquire;
-import com.riding.todoback.model.RequestPreviewCashBoardAll;
+import com.riding.todoback.model.DTO.RequestDetailBoardInquire;
+import com.riding.todoback.model.DTO.RequestPreviewCashBoardAll;
 import com.riding.todoback.service.MemoListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

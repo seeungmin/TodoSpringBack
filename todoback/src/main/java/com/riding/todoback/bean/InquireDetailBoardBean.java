@@ -1,7 +1,7 @@
 package com.riding.todoback.bean;
 
 import com.riding.todoback.entity.BoardEntity;
-import com.riding.todoback.model.RequestDetailBoardInquire;
+import com.riding.todoback.model.DTO.RequestDetailBoardInquire;
 import com.riding.todoback.repository.BoardRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

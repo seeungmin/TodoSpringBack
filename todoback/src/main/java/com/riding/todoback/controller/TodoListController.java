@@ -1,6 +1,6 @@
 package com.riding.todoback.controller;
 
-import com.riding.todoback.model.*;
+import com.riding.todoback.model.DTO.*;
 import com.riding.todoback.service.TodoListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

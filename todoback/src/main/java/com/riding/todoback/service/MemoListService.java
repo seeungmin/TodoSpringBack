@@ -3,8 +3,8 @@ package com.riding.todoback.service;
 import com.riding.todoback.bean.SaveBoardBean;
 import com.riding.todoback.bean.InquireDetailBoardBean;
 import com.riding.todoback.bean.ShowPreviewCashBoardBean;
-import com.riding.todoback.model.RequestDetailBoardInquire;
-import com.riding.todoback.model.RequestPreviewCashBoardAll;
+import com.riding.todoback.model.DTO.RequestDetailBoardInquire;
+import com.riding.todoback.model.DTO.RequestPreviewCashBoardAll;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

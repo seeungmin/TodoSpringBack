@@ -1,6 +1,6 @@
 package com.riding.todoback.controller;
 
-import com.riding.todoback.model.RequestBoardInput;
+import com.riding.todoback.model.DTO.RequestBoardInput;
 import com.riding.todoback.service.MemoListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
