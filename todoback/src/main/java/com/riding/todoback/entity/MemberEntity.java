@@ -13,6 +13,7 @@ import javax.persistence.Id;
 @Getter
 public class MemberEntity {
     @Id
-    Long member_Id;
+    String member_Id;
     String password;
+    String name;
 }

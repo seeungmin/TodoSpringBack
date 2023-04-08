@@ -18,6 +18,8 @@ public class TodoEntity {
 
     @Id
     private long id;
+    String member_Id;
     String content;
     LocalDateTime uploadTime;
+    LocalDateTime modifyTime;
 }
