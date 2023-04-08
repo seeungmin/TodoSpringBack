@@ -22,7 +22,7 @@ public class TodoListController {
     @PostMapping("todo")
     @ResponseBody
     public ResponseEntity<Map<String, Object>> todoInput(@RequestBody RequestTodoInput requestTodoInput){
-        Long id = todoListService.saveTodoEntity(requestTodoInput.getContent());
+        Long id = todoListService.saveTodoEntity(requestTodoInput);
 
         // HTTP 상태 반환
         HttpStatus httpStatus = (id != null) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
