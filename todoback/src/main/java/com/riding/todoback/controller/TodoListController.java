@@ -43,8 +43,7 @@ public class TodoListController {
     @ResponseBody
     public ResponseEntity<Map<String, Object>> finishedTodoInput(@RequestBody RequestFinishTodoInput requestFinishTodoInput){
         Long id = requestFinishTodoInput.getId();
-
-        todoListService.saveFinishedTodoEntity(id);
+        todoListService.saveFinishedTodoEntity(requestFinishTodoInput);
 
         // HTTP 상태 반환
         HttpStatus httpStatus = (id != null) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;

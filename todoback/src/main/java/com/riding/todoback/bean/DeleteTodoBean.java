@@ -1,23 +1,21 @@
 package com.riding.todoback.bean;
 
-import com.riding.todoback.entity.TodoEntity;
-import com.riding.todoback.repository.TodoRepositoryJPA;
+import com.riding.todoback.bean.Small.DeleteTodoDAOBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DeleteTodoBean {
 
+    DeleteTodoDAOBean deleteTodoDAOBean;
+
     @Autowired
-    TodoRepositoryJPA todoRepositoryJPA;
+    public DeleteTodoBean(DeleteTodoDAOBean deleteTodoDAOBean) {
+        this.deleteTodoDAOBean = deleteTodoDAOBean;
+    }
 
     // 할 일 삭제
     public boolean exec(long id){
-        // 할일 데이터 받기
-        TodoEntity todoEntity = todoRepositoryJPA.findById(id).get();
-
-        // 받은 데이터 삭제
-        todoRepositoryJPA.delete(todoEntity);
-        return true;
+        return deleteTodoDAOBean.exec(id);
     }
 }
