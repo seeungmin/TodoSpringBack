@@ -28,7 +28,7 @@ public class ModifyTodoDAOBean {
 
         // 새로 받을 내용 작성
         todoEntity.setContent(content);
-        todoEntity.setUploadTime(LocalDateTime.now());
+        todoEntity.setModifyTime(LocalDateTime.now());
 
         // 새로운 데이터 기존 아이디에 저장
         if(todoRepositoryJPA.save(todoEntity) == null)

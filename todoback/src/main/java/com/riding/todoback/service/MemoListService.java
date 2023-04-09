@@ -3,6 +3,7 @@ package com.riding.todoback.service;
 import com.riding.todoback.bean.SaveBoardBean;
 import com.riding.todoback.bean.InquireDetailBoardBean;
 import com.riding.todoback.bean.ShowPreviewCashBoardBean;
+import com.riding.todoback.model.DTO.RequestBoardInput;
 import com.riding.todoback.model.DTO.RequestDetailBoardInquire;
 import com.riding.todoback.model.DTO.RequestPreviewCashBoardAll;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,8 @@ public class MemoListService {
 
 
     // 메모장 데이터 저장
-    public boolean saveBoardEntity(String title, String input){
-        return saveBoardBean.exec(title, input);
+    public boolean saveBoardEntity(RequestBoardInput requestBoardInput){
+        return saveBoardBean.exec(requestBoardInput);
     }
 
     // 메모장 preview 조회

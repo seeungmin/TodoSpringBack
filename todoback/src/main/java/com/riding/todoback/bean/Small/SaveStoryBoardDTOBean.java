@@ -1,8 +1,7 @@
 package com.riding.todoback.bean.Small;
 
-import com.riding.todoback.entity.BoardEntity;
 import com.riding.todoback.entity.CashBoardEntity;
-import com.riding.todoback.repository.BoardRepositoryJPA;
+import com.riding.todoback.model.DTO.RequestBoardInput;
 import com.riding.todoback.repository.CashBoardRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -25,10 +24,12 @@ public class SaveStoryBoardDTOBean {
     }
 
     // 메모장 데이터와 스토리보드 캐시 데이터 저장
-    public boolean exec(String title, String input){
+    public boolean exec(Long id, RequestBoardInput requestBoardInput){
+        // 제목
+        String title = requestBoardInput.getTitle();
 
-        // 아이디 생성
-        long id = generateUniqueIdBean.exec();
+        //내용
+        String input = requestBoardInput.getContent();
 
         // 시간 생성
         LocalDateTime uTime = LocalDateTime.now();

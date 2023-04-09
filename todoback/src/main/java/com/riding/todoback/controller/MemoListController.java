@@ -21,7 +21,7 @@ public class MemoListController {
     @PostMapping("board")
     @ResponseBody
     public ResponseEntity<String> boardInput(@RequestBody RequestBoardInput requestBoardInput){
-        boolean create = memoListService.saveBoardEntity(requestBoardInput.getTitle(), requestBoardInput.getContent());
+        boolean create = memoListService.saveBoardEntity(requestBoardInput);
 
         // HTTP 상태 반환
         if(create){
