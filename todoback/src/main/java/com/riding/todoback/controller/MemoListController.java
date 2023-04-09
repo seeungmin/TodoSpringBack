@@ -1,5 +1,6 @@
 package com.riding.todoback.controller;
 
+import com.riding.todoback.model.DTO.RequestBoardDelete;
 import com.riding.todoback.model.DTO.RequestBoardInput;
 import com.riding.todoback.model.DTO.RequestBoardModify;
 import com.riding.todoback.service.MemoListService;
@@ -41,6 +42,16 @@ public class MemoListController {
         HttpStatus httpStatus = modify ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
 
         return ResponseEntity.status(httpStatus).body(modify ? "Modify Success" : "Modify Fail");
+    }
+
+    @PostMapping("boardDelete")
+    @ResponseBody
+    public ResponseEntity<String> todoDelete(@RequestBody RequestBoardDelete requestBoardDelete){
+        boolean delete = memoListService.deleteBoardEntity(requestBoardDelete);
+
+        HttpStatus httpStatus = delete ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
+
+        return ResponseEntity.status(httpStatus).body(delete ? "Delete Success" : "Delete Fail");
     }
 
     // 메모장 임시저장 데이터 저장

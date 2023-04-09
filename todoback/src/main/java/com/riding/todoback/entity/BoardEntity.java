@@ -22,5 +22,4 @@ public class BoardEntity {
     String content;
     LocalDateTime uploadTime;
     LocalDateTime modifyTime;
-
 }

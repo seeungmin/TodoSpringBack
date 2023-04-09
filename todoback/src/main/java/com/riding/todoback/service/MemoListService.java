@@ -1,9 +1,6 @@
 package com.riding.todoback.service;
 
-import com.riding.todoback.bean.ModifyBoardBean;
-import com.riding.todoback.bean.SaveBoardBean;
-import com.riding.todoback.bean.InquireDetailBoardBean;
-import com.riding.todoback.bean.ShowPreviewCashBoardBean;
+import com.riding.todoback.bean.*;
 import com.riding.todoback.model.DTO.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,13 +14,15 @@ public class MemoListService {
     InquireDetailBoardBean inquireDetailBoardBean;
     ShowPreviewCashBoardBean showPreviewCashBoardBean;
     ModifyBoardBean modifyBoardBean;
+    DeleteBoardBean deleteBoardBean;
 
     @Autowired
-    public MemoListService(SaveBoardBean saveBoardBean, InquireDetailBoardBean inquireDetailBoardBean, ShowPreviewCashBoardBean showPreviewCashBoardBean, ModifyBoardBean modifyBoardBean) {
+    public MemoListService(SaveBoardBean saveBoardBean, InquireDetailBoardBean inquireDetailBoardBean, ShowPreviewCashBoardBean showPreviewCashBoardBean, ModifyBoardBean modifyBoardBean, DeleteBoardBean deleteBoardBean) {
         this.saveBoardBean = saveBoardBean;
         this.inquireDetailBoardBean = inquireDetailBoardBean;
         this.showPreviewCashBoardBean = showPreviewCashBoardBean;
         this.modifyBoardBean = modifyBoardBean;
+        this.deleteBoardBean = deleteBoardBean;
     }
 
 
@@ -49,6 +48,9 @@ public class MemoListService {
     }
 
     // 메모장 삭제
+    public boolean deleteBoardEntity(RequestBoardDelete requestBoardDelete){
+        return deleteBoardBean.exec(requestBoardDelete);
+    }
 
 
 
