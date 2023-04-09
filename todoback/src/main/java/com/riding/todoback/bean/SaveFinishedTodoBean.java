@@ -1,6 +1,6 @@
 package com.riding.todoback.bean;
 
-import com.riding.todoback.bean.Small.SaveFinishedTodoNewDAOBean;
+import com.riding.todoback.bean.Small.SaveFinishedTodoDAOBean;
 import com.riding.todoback.model.DTO.RequestFinishTodoInput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -8,10 +8,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class SaveFinishedTodoBean {
 
-    SaveFinishedTodoNewDAOBean saveFinishedTodoNewDAOBean;
+    SaveFinishedTodoDAOBean saveFinishedTodoNewDAOBean;
 
     @Autowired
-    public SaveFinishedTodoBean(SaveFinishedTodoNewDAOBean saveFinishedTodoNewDAOBean) {
+    public SaveFinishedTodoBean(SaveFinishedTodoDAOBean saveFinishedTodoNewDAOBean) {
         this.saveFinishedTodoNewDAOBean = saveFinishedTodoNewDAOBean;
     }
 

@@ -63,7 +63,7 @@ public class TodoListController {
     @PostMapping("modifyTodo")
     @ResponseBody
     public ResponseEntity<String> todoModify(@RequestBody RequestTodoModify requestTodoModify){
-        boolean modify = todoListService.modifyTodoEntity(requestTodoModify.getId(), requestTodoModify.getContent());
+        boolean modify = todoListService.modifyTodoEntity(requestTodoModify);
 
         HttpStatus httpStatus = modify ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
 

@@ -8,6 +8,7 @@ import com.riding.todoback.bean.SaveFinishedTodoBean;
 import com.riding.todoback.model.DTO.RequestFinishTodoDelete;
 import com.riding.todoback.model.DTO.RequestFinishTodoInput;
 import com.riding.todoback.model.DTO.RequestTodoInput;
+import com.riding.todoback.model.DTO.RequestTodoModify;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,8 +41,8 @@ public class TodoListService {
     }
 
     // 할 일 데이터 수정
-    public boolean modifyTodoEntity(long id, String content){
-        return modifyTodoBean.exec(id, content);
+    public boolean modifyTodoEntity(RequestTodoModify requestTodoModify){
+        return modifyTodoBean.exec(requestTodoModify);
     }
 
     // 할 일 삭제

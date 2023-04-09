@@ -12,14 +12,14 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Component
-public class SaveFinishedTodoNewDAOBean {
+public class SaveFinishedTodoDAOBean {
 
     TodoRepositoryJPA todoRepositoryJPA;
     FinishedTodoRepositoryJPA finishedTodoRepositoryJPA;
     DeleteTodoDAOBean deleteTodoDAOBean;
 
     @Autowired
-    public SaveFinishedTodoNewDAOBean(TodoRepositoryJPA todoRepositoryJPA, FinishedTodoRepositoryJPA finishedTodoRepositoryJPA, DeleteTodoDAOBean deleteTodoDAOBean) {
+    public SaveFinishedTodoDAOBean(TodoRepositoryJPA todoRepositoryJPA, FinishedTodoRepositoryJPA finishedTodoRepositoryJPA, DeleteTodoDAOBean deleteTodoDAOBean) {
         this.todoRepositoryJPA = todoRepositoryJPA;
         this.finishedTodoRepositoryJPA = finishedTodoRepositoryJPA;
         this.deleteTodoDAOBean = deleteTodoDAOBean;
