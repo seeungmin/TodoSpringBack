@@ -1,6 +1,7 @@
 package com.riding.todoback.controller;
 
 import com.riding.todoback.model.DTO.RequestBoardInput;
+import com.riding.todoback.model.DTO.RequestBoardModify;
 import com.riding.todoback.service.MemoListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,6 +31,16 @@ public class MemoListController {
         else {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Create Fail");
         }
+    }
+
+    @PostMapping("modifyBoard")
+    @ResponseBody
+    public ResponseEntity<String> boardModify(@RequestBody RequestBoardModify requestBoardModify){
+        boolean modify = memoListService.modifyBoardEntity(requestBoardModify);
+
+        HttpStatus httpStatus = modify ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
+
+        return ResponseEntity.status(httpStatus).body(modify ? "Modify Success" : "Modify Fail");
     }
 
     // 메모장 임시저장 데이터 저장

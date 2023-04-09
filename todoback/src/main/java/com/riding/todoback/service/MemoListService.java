@@ -1,11 +1,10 @@
 package com.riding.todoback.service;
 
+import com.riding.todoback.bean.ModifyBoardBean;
 import com.riding.todoback.bean.SaveBoardBean;
 import com.riding.todoback.bean.InquireDetailBoardBean;
 import com.riding.todoback.bean.ShowPreviewCashBoardBean;
-import com.riding.todoback.model.DTO.RequestBoardInput;
-import com.riding.todoback.model.DTO.RequestDetailBoardInquire;
-import com.riding.todoback.model.DTO.RequestPreviewCashBoardAll;
+import com.riding.todoback.model.DTO.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,12 +16,14 @@ public class MemoListService {
     SaveBoardBean saveBoardBean;
     InquireDetailBoardBean inquireDetailBoardBean;
     ShowPreviewCashBoardBean showPreviewCashBoardBean;
+    ModifyBoardBean modifyBoardBean;
 
     @Autowired
-    public MemoListService(SaveBoardBean saveBoardBean, InquireDetailBoardBean inquireDetailBoardBean, ShowPreviewCashBoardBean showPreviewCashBoardBean) {
+    public MemoListService(SaveBoardBean saveBoardBean, InquireDetailBoardBean inquireDetailBoardBean, ShowPreviewCashBoardBean showPreviewCashBoardBean, ModifyBoardBean modifyBoardBean) {
         this.saveBoardBean = saveBoardBean;
         this.inquireDetailBoardBean = inquireDetailBoardBean;
         this.showPreviewCashBoardBean = showPreviewCashBoardBean;
+        this.modifyBoardBean = modifyBoardBean;
     }
 
 
@@ -40,6 +41,14 @@ public class MemoListService {
     public RequestDetailBoardInquire inquireBoardEntity(long id){
         return inquireDetailBoardBean.exec(id);
     }
+
+
+    // 메모장 수정
+    public boolean modifyBoardEntity(RequestBoardModify requestBoardModify){
+        return modifyBoardBean.exec(requestBoardModify);
+    }
+
+    // 메모장 삭제
 
 
 
