@@ -1,6 +1,7 @@
 package com.riding.todoback.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
@@ -11,6 +12,7 @@ import java.time.LocalDateTime;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
 @Setter
 public class FinishedTodoEntity {
     @Id
@@ -19,5 +21,4 @@ public class FinishedTodoEntity {
     String content;
     LocalDateTime uploadTime;
     LocalDateTime completionTime;
-
 }

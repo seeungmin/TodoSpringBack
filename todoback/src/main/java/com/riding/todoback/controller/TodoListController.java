@@ -106,4 +106,11 @@ public class TodoListController {
     public List<RequestPreviewTodoAll> allPreviewTodo(){
         return todoListService.showTodoAllEntity();
     }
+
+    // 다 한 일 조회
+    @GetMapping("previewFinishTodo")
+    @ResponseBody
+    public List<RequestPreviewFinishTodoAll> allPreviewFinishTodo(){
+        return todoListService.showFinishTodoAllEntity();
+    }
 }
