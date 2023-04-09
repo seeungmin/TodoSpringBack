@@ -78,7 +78,7 @@ public class TodoListController {
     @PostMapping("todoDelete")
     @ResponseBody
     public ResponseEntity<String> todoDelete(@RequestBody RequestTodoDelete requestTodoDelete){
-        boolean delete = todoListService.deleteTodoEntity(Long.parseLong(requestTodoDelete.getId()));
+        boolean delete = todoListService.deleteTodoEntity(requestTodoDelete);
 
         HttpStatus httpStatus = delete ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
 
@@ -90,7 +90,7 @@ public class TodoListController {
     @PostMapping("finishTodoDelete")
     @ResponseBody
     public ResponseEntity<String> finishedTodoDelete(@RequestBody RequestFinishTodoDelete requestFinishTodoDelete){
-        boolean delete = todoListService.deleteFinishedTodoEntity(Long.parseLong(requestFinishTodoDelete.getId()));
+        boolean delete = todoListService.deleteFinishedTodoEntity(requestFinishTodoDelete);
 
         HttpStatus httpStatus = delete ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
 

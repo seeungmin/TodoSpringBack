@@ -5,10 +5,7 @@ import com.riding.todoback.bean.DeleteTodoBean;
 import com.riding.todoback.bean.ModifyTodoBean;
 import com.riding.todoback.bean.SaveTodoBean;
 import com.riding.todoback.bean.SaveFinishedTodoBean;
-import com.riding.todoback.model.DTO.RequestFinishTodoDelete;
-import com.riding.todoback.model.DTO.RequestFinishTodoInput;
-import com.riding.todoback.model.DTO.RequestTodoInput;
-import com.riding.todoback.model.DTO.RequestTodoModify;
+import com.riding.todoback.model.DTO.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,13 +43,13 @@ public class TodoListService {
     }
 
     // 할 일 삭제
-    public boolean deleteTodoEntity(long id){
-        return deleteTodoBean.exec(id);
+    public boolean deleteTodoEntity(RequestTodoDelete requestTodoDelete){
+        return deleteTodoBean.exec(requestTodoDelete);
     }
 
     //다 한 일 삭제
-    public boolean deleteFinishedTodoEntity(long id){
-        return deleteFinishedTodoBean.exec(id);
+    public boolean deleteFinishedTodoEntity(RequestFinishTodoDelete requestFinishTodoDelete){
+        return deleteFinishedTodoBean.exec(requestFinishTodoDelete);
 
     }
 
