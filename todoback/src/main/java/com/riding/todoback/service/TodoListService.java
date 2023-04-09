@@ -1,13 +1,11 @@
 package com.riding.todoback.service;
 
-import com.riding.todoback.bean.DeleteFinishedTodoBean;
-import com.riding.todoback.bean.DeleteTodoBean;
-import com.riding.todoback.bean.ModifyTodoBean;
-import com.riding.todoback.bean.SaveTodoBean;
-import com.riding.todoback.bean.SaveFinishedTodoBean;
+import com.riding.todoback.bean.*;
 import com.riding.todoback.model.DTO.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class TodoListService {
@@ -17,14 +15,16 @@ public class TodoListService {
     DeleteTodoBean deleteTodoBean;
     DeleteFinishedTodoBean deleteFinishedTodoBean;
     ModifyTodoBean modifyTodoBean;
+    ShowTodoBean showTodoBean;
 
     @Autowired
-    public TodoListService(SaveTodoBean saveTodoBean, SaveFinishedTodoBean saveFinishedTodoBean, DeleteTodoBean deleteTodoBean, DeleteFinishedTodoBean deleteFinishedTodoBean, ModifyTodoBean modifyTodoBean) {
+    public TodoListService(SaveTodoBean saveTodoBean, SaveFinishedTodoBean saveFinishedTodoBean, DeleteTodoBean deleteTodoBean, DeleteFinishedTodoBean deleteFinishedTodoBean, ModifyTodoBean modifyTodoBean, ShowTodoBean showTodoBean) {
         this.saveTodoBean = saveTodoBean;
         this.saveFinishedTodoBean = saveFinishedTodoBean;
         this.deleteTodoBean = deleteTodoBean;
         this.deleteFinishedTodoBean = deleteFinishedTodoBean;
         this.modifyTodoBean = modifyTodoBean;
+        this.showTodoBean = showTodoBean;
     }
 
     // 할 일 데이터 저장
@@ -47,10 +47,15 @@ public class TodoListService {
         return deleteTodoBean.exec(requestTodoDelete);
     }
 
-    //다 한 일 삭제
+    // 다 한 일 삭제
     public boolean deleteFinishedTodoEntity(RequestFinishTodoDelete requestFinishTodoDelete){
         return deleteFinishedTodoBean.exec(requestFinishTodoDelete);
 
+    }
+
+    // 할 일 전체 조회
+    public List<RequestPreviewTodoAll> showTodoAllEntity(){
+        return showTodoBean.exec();
     }
 
 }

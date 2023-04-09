@@ -25,8 +25,11 @@ public class InquireDetailBoardDAOBean {
         // DTO 객체에 메모 객체 넘기기
         RequestDetailBoardInquire requestDetailBoardInquire = new RequestDetailBoardInquire();
         requestDetailBoardInquire.setId(boardEntity.getId());
+        requestDetailBoardInquire.setMember_Id(boardEntity.getMember_Id());
+        requestDetailBoardInquire.setTitle(boardEntity.getTitle());
         requestDetailBoardInquire.setContent(boardEntity.getContent());
         requestDetailBoardInquire.setUploadTime(boardEntity.getUploadTime());
+        requestDetailBoardInquire.setModifyTime(boardEntity.getModifyTime());
 
         // DTO객체 반환
         return requestDetailBoardInquire;

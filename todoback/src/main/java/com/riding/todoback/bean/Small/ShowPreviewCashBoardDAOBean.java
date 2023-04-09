@@ -32,8 +32,11 @@ public class ShowPreviewCashBoardDAOBean {
         for (CashBoardEntity cashBoardEntity : cashBoardEntityList) {
             RequestPreviewCashBoardAll requestPreviewCashBoardAll = new RequestPreviewCashBoardAll();
             requestPreviewCashBoardAll.setId(cashBoardEntity.getId());
+            requestPreviewCashBoardAll.setMember_Id(cashBoardEntity.getMember_Id());
+            requestPreviewCashBoardAll.setTitle(cashBoardEntity.getTitle());
             requestPreviewCashBoardAll.setCashData(cashBoardEntity.getCashData());
             requestPreviewCashBoardAll.setUploadTime(cashBoardEntity.getUploadTime());
+            requestPreviewCashBoardAll.setModifyTime(cashBoardEntity.getModifyTime());
             requestPreviewCashBoardAllList.add(requestPreviewCashBoardAll);
         }
 

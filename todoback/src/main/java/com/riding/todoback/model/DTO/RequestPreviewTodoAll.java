@@ -5,8 +5,10 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-public class RequestTodoModify {
-    Long id;
+public class RequestPreviewTodoAll {
+    long id;
+    String member_Id;
     String content;
+    LocalDateTime uploadTime;
     LocalDateTime modifyTime;
 }

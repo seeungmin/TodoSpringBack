@@ -6,7 +6,10 @@ import java.time.LocalDateTime;
 
 @Data
 public class RequestPreviewCashBoardAll {
-    private long id;
+    long id;
+    String member_Id;
+    String title;
     String cashData;
     LocalDateTime uploadTime;
+    LocalDateTime modifyTime;
 }

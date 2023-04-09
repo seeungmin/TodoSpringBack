@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -96,5 +97,13 @@ public class TodoListController {
 
         return ResponseEntity.status(httpStatus).body(delete ? "Delete Success" : "Delete Fail");
 
+    }
+
+
+    // 할 일 조회
+    @GetMapping("previewTodo")
+    @ResponseBody
+    public List<RequestPreviewTodoAll> allPreviewTodo(){
+        return todoListService.showTodoAllEntity();
     }
 }
