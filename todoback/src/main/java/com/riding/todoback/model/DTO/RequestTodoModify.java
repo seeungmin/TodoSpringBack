@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class RequestTodoModify {
-    Long id;
+    long id;
     String content;
 }
