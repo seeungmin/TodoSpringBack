@@ -1,8 +1,6 @@
 package com.riding.todoback.bean.Small;
 
-import com.riding.todoback.entity.CashBoardEntity;
 import com.riding.todoback.entity.TodoEntity;
-import com.riding.todoback.model.DTO.RequestPreviewCashBoardAll;
 import com.riding.todoback.model.DTO.RequestPreviewTodoAll;
 import com.riding.todoback.repository.TodoRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;

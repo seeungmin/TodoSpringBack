@@ -1,9 +1,7 @@
 package com.riding.todoback.bean.Small;
 
 import com.riding.todoback.entity.FinishedTodoEntity;
-import com.riding.todoback.entity.TodoEntity;
 import com.riding.todoback.model.DTO.RequestPreviewFinishTodoAll;
-import com.riding.todoback.model.DTO.RequestPreviewTodoAll;
 import com.riding.todoback.repository.FinishedTodoRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

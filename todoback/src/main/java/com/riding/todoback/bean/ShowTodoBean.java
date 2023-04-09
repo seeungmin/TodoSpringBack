@@ -1,6 +1,5 @@
 package com.riding.todoback.bean;
 
-import com.riding.todoback.bean.Small.ShowPreviewCashBoardDAOBean;
 import com.riding.todoback.bean.Small.ShowTodoAllDAOBean;
 import com.riding.todoback.model.DTO.RequestPreviewTodoAll;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,6 @@
 package com.riding.todoback.bean.Small;
 
 import com.riding.todoback.entity.TodoEntity;
-import com.riding.todoback.model.DTO.RequestFinishTodoInput;
 import com.riding.todoback.model.DTO.RequestTodoDelete;
 import com.riding.todoback.repository.TodoRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;
