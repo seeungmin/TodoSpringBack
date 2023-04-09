@@ -1,6 +1,7 @@
 package com.riding.todoback.bean;
 
 import com.riding.todoback.bean.Small.DeleteTodoDAOBean;
+import com.riding.todoback.model.DTO.RequestTodoDelete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +16,7 @@ public class DeleteTodoBean {
     }
 
     // 할 일 삭제
-    public boolean exec(long id){
-        return deleteTodoDAOBean.exec(id);
+    public boolean exec(RequestTodoDelete requestTodoDelete){
+        return deleteTodoDAOBean.exec(requestTodoDelete);
     }
 }
