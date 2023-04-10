@@ -2,7 +2,7 @@
 
 ## 메모 preview 조회
 
-{% swagger method="get" path="/previewCashBoard" baseUrl="" summary="메모 preview 전체를 조회" %}
+{% swagger method="get" path="/previewCashBoard" baseUrl="http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000" summary="메모 preview 전체를 조회" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -11,8 +11,11 @@
 ```
 {
     "id": 유니크한 아이디,
+    "member_Id": 회원 아이디,
+    "title": 제목,
     "cashData": 메모 내용,
     "uploadTime": 메모를 저장한 시간
+    "modifyTime": 메모를 수정한 시간
 }
 ```
 {% endswagger-response %}
@@ -20,7 +23,7 @@
 
 ## 메모 detail 조회
 
-{% swagger method="get" path="/detailBoard" baseUrl="" summary="preview 선택시 메모의 상세내용 조회" %}
+{% swagger method="get" path="/detailBoard" baseUrl="http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000" summary="preview 선택시 메모의 상세내용 조회" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -33,8 +36,11 @@
 ```
 {
     "id": 유니크한 아이디,
+    "member_Id": 회원 아이디,
+    "title": 제목,
     "cashData": 메모 내용,
     "uploadTime": 메모를 저장한 시간
+    "modifyTime": 메모를 수정한 시간
 }
 ```
 {% endswagger-response %}

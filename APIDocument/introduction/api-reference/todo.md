@@ -6,7 +6,7 @@ description: 할 일 관련 API
 
 ## 할 일 저장
 
-{% swagger method="post" path="/todo" baseUrl="" summary="할 일 작성 후 저장" %}
+{% swagger method="post" path="/todo" baseUrl="http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000" summary="할 일 작성 후 저장" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -31,7 +31,7 @@ description: 할 일 관련 API
 
 ## 완료한 일 저장
 
-{% swagger method="post" path="/finishTodo" baseUrl="" summary="다 한일 저장" %}
+{% swagger method="post" path="/finishTodo" baseUrl="http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000" summary="다 한일 저장" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -56,7 +56,7 @@ description: 할 일 관련 API
 
 ## 할 일 내용 수정
 
-{% swagger method="post" path="/modifyTodo" baseUrl="" summary="할 일 수정" %}
+{% swagger method="post" path="/modifyTodo" baseUrl="http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000" summary="할 일 수정" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -82,7 +82,7 @@ Modify Success
 
 ## 할 일 삭제
 
-{% swagger method="post" path="/todoDelete" baseUrl="" summary="할 일 삭제" %}
+{% swagger method="post" path="/todoDelete" baseUrl="http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000" summary="할 일 삭제" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -104,7 +104,7 @@ Delete Success
 
 ## 완료한 일 삭제
 
-{% swagger method="post" path="/finishTodoDelete" baseUrl="" summary="다 한일 삭제" %}
+{% swagger method="post" path="/finishTodoDelete" baseUrl="http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000" summary="다 한일 삭제" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -124,3 +124,46 @@ Delete Success
 
 
 
+## 할 일 전체조회
+
+{% swagger method="get" path="/previewTodo" baseUrl="http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000" summary="할 일 전체를 조회" %}
+{% swagger-description %}
+
+{% endswagger-description %}
+
+{% swagger-response status="200: OK" description="조회 성공시 json으로 데이터 반환" %}
+```
+{
+    "id": 유니크한 아이디,
+    "member_Id": 회원 아이디,
+    "cashData": 할 일내용,
+    "uploadTime": 할 일을 업로드한 시간
+    "modifyTime": 할 일을 수정한 시간
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
+
+
+
+
+## 다 한 일 전체조회
+
+{% swagger method="get" path="/previewFinishTodo" baseUrl="http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000/previewFinishTodo" summary="다 한 일 전체를 조회" %}
+{% swagger-description %}
+
+{% endswagger-description %}
+
+{% swagger-response status="200: OK" description="조회 성공시 json으로 데이터 반환" %}
+```
+{
+    "id": 유니크한 아이디,
+    "member_Id": 회원 아이디,
+    "cashData": 할 일내용,
+    "uploadTime": 할 일을 업로드한 시간
+    "completionTime": 할 일을 완료한시간
+}
+```
+{% endswagger-response %}
+{% endswagger %}
