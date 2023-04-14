@@ -1,6 +1,6 @@
 package com.riding.todoback.repository.test;
 
-import com.riding.todoback.entity.TodoEntity;
+import com.riding.todoback.model.entity.TodoEntity;
 import com.riding.todoback.repository.TodoRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
