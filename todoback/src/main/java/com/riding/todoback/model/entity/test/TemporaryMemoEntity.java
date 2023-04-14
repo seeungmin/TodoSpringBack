@@ -1,4 +1,4 @@
-package com.riding.todoback.entity.test;
+package com.riding.todoback.model.entity.test;
 
 import lombok.AllArgsConstructor;
 import lombok.Generated;
