@@ -102,12 +102,18 @@ public class TodoListController {
     // 다 한 일 삭제
     @PostMapping("finishTodoDelete")
     @ResponseBody
-    public ResponseEntity<String> finishedTodoDelete(@RequestBody RequestFinishTodoDelete requestFinishTodoDelete){
-        boolean delete = todoListService.deleteFinishedTodoEntity(requestFinishTodoDelete);
+    public ResponseEntity<Map<String, Object>> finishedTodoDelete(@RequestBody RequestFinishTodoDelete requestFinishTodoDelete){
+        Long id = todoListService.deleteFinishedTodoEntity(requestFinishTodoDelete);
 
-        HttpStatus httpStatus = delete ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
+        // HTTP 상태 반환
+        HttpStatus httpStatus = (id != null) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
 
-        return ResponseEntity.status(httpStatus).body(delete ? "Delete Success" : "Delete Fail");
+        // 메시지와 id 값 json 데이터로 반환
+        Map<String, Object> requestMap = new HashMap<>();
+        requestMap.put("message", (id != null) ? "Delete Success" : "Delete Fail");
+        requestMap.put("id", id);
+
+        return ResponseEntity.status(httpStatus).body(requestMap);
 
     }
 
