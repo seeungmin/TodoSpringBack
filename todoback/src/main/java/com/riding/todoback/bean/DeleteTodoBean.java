@@ -12,7 +12,7 @@ public class DeleteTodoBean {
 
     FindByIdDAOBean findByIdDAOBean;
     DeleteDAOBean deleteDAOBean;
-    
+
     @Autowired
     public DeleteTodoBean(FindByIdDAOBean findByIdDAOBean, DeleteDAOBean deleteDAOBean) {
         this.findByIdDAOBean = findByIdDAOBean;
