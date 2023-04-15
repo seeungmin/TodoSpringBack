@@ -1,23 +1,45 @@
 package com.riding.todoback.bean;
 
-import com.riding.todoback.bean.Small.SaveFinishedTodoDAOBean;
+import com.riding.todoback.bean.Small.*;
 import com.riding.todoback.model.DTO.RequestFinishTodoInput;
+import com.riding.todoback.model.entity.FinishedTodoEntity;
+import com.riding.todoback.model.entity.TodoEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class SaveFinishedTodoBean {
 
-    SaveFinishedTodoDAOBean saveFinishedTodoNewDAOBean;
+    FindByIdDAOBean findByIdDAOBean;
+    NewObjectDAOBean newObjectDAOBean;
+    SaveDAOBean saveDAOBean;
+    DeleteDAOBean deleteDAOBean;
 
     @Autowired
-    public SaveFinishedTodoBean(SaveFinishedTodoDAOBean saveFinishedTodoNewDAOBean) {
-        this.saveFinishedTodoNewDAOBean = saveFinishedTodoNewDAOBean;
+    public SaveFinishedTodoBean(FindByIdDAOBean findByIdDAOBean, NewObjectDAOBean newObjectDAOBean, SaveDAOBean saveDAOBean, DeleteDAOBean deleteDAOBean) {
+        this.findByIdDAOBean = findByIdDAOBean;
+        this.newObjectDAOBean = newObjectDAOBean;
+        this.saveDAOBean = saveDAOBean;
+        this.deleteDAOBean = deleteDAOBean;
     }
 
     // 다 한일 데이터 저장
     public void exec(RequestFinishTodoInput requestFinishTodoInput){
-        saveFinishedTodoNewDAOBean.exec(requestFinishTodoInput);
+
+        // 할 일아이디 받기
+        long id = requestFinishTodoInput.getId();
+
+        // 아이디로 할 일 객체 받아오기
+        TodoEntity todoEntity = findByIdDAOBean.exec(id);
+
+        // 다 한 일 저장할 객체 생성
+        FinishedTodoEntity finishedTodoEntity = newObjectDAOBean.exec(todoEntity);
+
+        // 데이터 저장
+        saveDAOBean.exec(finishedTodoEntity);
+
+        // 다 한 일로 옮긴 할 일 삭제
+        deleteDAOBean.exec(todoEntity);
     }
 
 }
