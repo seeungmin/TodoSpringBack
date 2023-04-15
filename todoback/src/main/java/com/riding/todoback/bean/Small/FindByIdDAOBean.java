@@ -53,6 +53,11 @@ public class FindByIdDAOBean {
         return boardRepositoryJPA.findById(id).get();
     }
 
+    // 아이디로 캐시 메모 객체 찾기
+    public CashBoardEntity exec(Long id, RequestBoardModify requestBoardModify){
+        return cashBoardRepositoryJPA.findById(id).get();
+    }
+
 
     // 아이디로 메모 객체 찾기
     public BoardEntity exec(RequestBoardDelete requestBoardDelete){
