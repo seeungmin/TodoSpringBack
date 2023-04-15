@@ -8,15 +8,20 @@ import com.riding.todoback.model.entity.TodoEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
 
 @Component
 public class SaveTodoBean {
 
-    @Autowired
+
     SaveDAOBean saveDAOBean;
     NewObjectDAOBean newObjectDAOBean;
     GenerateUniqueIdBean generateUniqueIdBean;
+    @Autowired
+    public SaveTodoBean(SaveDAOBean saveDAOBean, NewObjectDAOBean newObjectDAOBean, GenerateUniqueIdBean generateUniqueIdBean) {
+        this.saveDAOBean = saveDAOBean;
+        this.newObjectDAOBean = newObjectDAOBean;
+        this.generateUniqueIdBean = generateUniqueIdBean;
+    }
 
     // 할 일 데이터 저장
     public long exec(RequestTodoInput requestTodoInput){

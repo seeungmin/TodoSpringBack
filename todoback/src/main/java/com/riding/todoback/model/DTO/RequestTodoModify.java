@@ -8,5 +8,4 @@ import java.time.LocalDateTime;
 public class RequestTodoModify {
     Long id;
     String content;
-    LocalDateTime modifyTime;
 }

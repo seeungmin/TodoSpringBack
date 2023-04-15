@@ -44,8 +44,7 @@ public class TodoListController {
     @PostMapping("finishTodo")
     @ResponseBody
     public ResponseEntity<Map<String, Object>> finishedTodoInput(@RequestBody RequestFinishTodoInput requestFinishTodoInput){
-        Long id = requestFinishTodoInput.getId();
-        todoListService.saveFinishedTodoEntity(requestFinishTodoInput);
+        Long id = todoListService.saveFinishedTodoEntity(requestFinishTodoInput);
 
         // HTTP 상태 반환
         HttpStatus httpStatus = (id != null) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
@@ -64,12 +63,18 @@ public class TodoListController {
     // 할 일 데이터 수정
     @PostMapping("modifyTodo")
     @ResponseBody
-    public ResponseEntity<String> todoModify(@RequestBody RequestTodoModify requestTodoModify){
-        boolean modify = todoListService.modifyTodoEntity(requestTodoModify);
+    public ResponseEntity<Map<String, Object>> todoModify(@RequestBody RequestTodoModify requestTodoModify){
+        Long id = todoListService.modifyTodoEntity(requestTodoModify);
 
-        HttpStatus httpStatus = modify ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
+        // HTTP 상태 반환
+        HttpStatus httpStatus = (id != null) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
 
-        return ResponseEntity.status(httpStatus).body(modify ? "Modify Success" : "Modify Fail");
+        // 메시지와 id 값 json 데이터로 반환
+        Map<String, Object> requestMap = new HashMap<>();
+        requestMap.put("message", (id != null) ? "Modify Success" : "Create Fail");
+        requestMap.put("id", id);
+
+        return ResponseEntity.status(httpStatus).body(requestMap);
     }
 
 

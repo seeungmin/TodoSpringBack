@@ -24,7 +24,7 @@ public class SaveFinishedTodoBean {
     }
 
     // 다 한일 데이터 저장
-    public void exec(RequestFinishTodoInput requestFinishTodoInput){
+    public Long exec(RequestFinishTodoInput requestFinishTodoInput){
 
         // 할 일아이디 받기
         long id = requestFinishTodoInput.getId();
@@ -40,6 +40,8 @@ public class SaveFinishedTodoBean {
 
         // 다 한 일로 옮긴 할 일 삭제
         deleteDAOBean.exec(todoEntity);
+
+        return id;
     }
 
 }

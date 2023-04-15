@@ -10,9 +10,6 @@ import java.time.LocalDateTime;
 @Component
 public class NewObjectDAOBean {
 
-    public NewObjectDAOBean() {
-    }
-
     // 할 일 객체 생성
     public TodoEntity exec(Long id, RequestTodoInput requestTodoInput) {
         // 내용 받기
