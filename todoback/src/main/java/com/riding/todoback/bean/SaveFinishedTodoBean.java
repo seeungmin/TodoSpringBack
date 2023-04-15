@@ -23,7 +23,6 @@ public class SaveFinishedTodoBean {
         this.deleteDAOBean = deleteDAOBean;
     }
 
-
     // 다 한일 데이터 저장
     public Long exec(RequestFinishTodoInput requestFinishTodoInput){
 

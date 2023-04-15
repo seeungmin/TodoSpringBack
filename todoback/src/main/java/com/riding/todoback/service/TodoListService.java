@@ -51,7 +51,7 @@ public class TodoListService {
     }
 
     // 다 한 일 삭제
-    public Long deleteFinishedTodoEntity(RequestFinishTodoDelete requestFinishTodoDelete){
+    public boolean deleteFinishedTodoEntity(RequestFinishTodoDelete requestFinishTodoDelete){
         return deleteFinishedTodoBean.exec(requestFinishTodoDelete);
 
     }
