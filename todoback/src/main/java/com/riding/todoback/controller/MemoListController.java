@@ -10,6 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Controller
 @CrossOrigin("*")
 public class MemoListController {
@@ -23,16 +26,18 @@ public class MemoListController {
     // 메모장 데이터 입력 저장 및 스토리보드 데이터 캐싱 후 저장
     @PostMapping("board")
     @ResponseBody
-    public ResponseEntity<String> boardInput(@RequestBody RequestBoardInput requestBoardInput){
-        boolean create = memoListService.saveBoardEntity(requestBoardInput);
+    public ResponseEntity<Map<String, Object>> boardInput(@RequestBody RequestBoardInput requestBoardInput){
+        Long id = memoListService.saveBoardEntity(requestBoardInput);
 
         // HTTP 상태 반환
-        if(create){
-            return ResponseEntity.ok("Create Success");
-        }
-        else {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Create Fail");
-        }
+        HttpStatus httpStatus = (id != null) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
+
+        // 메시지와 id 값 json 데이터로 반환
+        Map<String, Object> requestMap = new HashMap<>();
+        requestMap.put("message", (id != null) ? "Create Success" : "Create Fail");
+        requestMap.put("id", id);
+
+        return ResponseEntity.status(httpStatus).body(requestMap);
     }
 
     @PostMapping("modifyBoard")

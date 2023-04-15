@@ -1,14 +1,25 @@
 package com.riding.todoback.bean.Small;
 
+import com.riding.todoback.model.DTO.RequestBoardInput;
 import com.riding.todoback.model.DTO.RequestTodoInput;
+import com.riding.todoback.model.entity.BoardEntity;
+import com.riding.todoback.model.entity.CashBoardEntity;
 import com.riding.todoback.model.entity.FinishedTodoEntity;
 import com.riding.todoback.model.entity.TodoEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
 @Component
 public class NewObjectDAOBean {
+
+    SaveCashBoardBean saveCashBoardBean;
+
+    @Autowired
+    public NewObjectDAOBean(SaveCashBoardBean saveCashBoardBean) {
+        this.saveCashBoardBean = saveCashBoardBean;
+    }
 
     // 할 일 객체 생성
     public TodoEntity exec(Long id, RequestTodoInput requestTodoInput) {
@@ -35,5 +46,39 @@ public class NewObjectDAOBean {
         finishedTodoEntity.setCompletionTime(LocalDateTime.now());
 
         return finishedTodoEntity;
+    }
+
+    // 메모 객체 생성
+    public BoardEntity exec(Long id, RequestBoardInput requestBoardInput) {
+
+        // 제목
+        String title = requestBoardInput.getTitle();
+
+        // 내용
+        String content = requestBoardInput.getContent();
+
+        // 시간 생성
+        LocalDateTime uTime = LocalDateTime.now();
+        LocalDateTime mTime = LocalDateTime.now();
+
+        // 메모장 데이터 저장
+        return new BoardEntity(id, "1", title, content, uTime, mTime);
+    }
+
+    // 캐시 메모 객체 생성
+    public CashBoardEntity exec(Long id, BoardEntity boardEntity){
+        // 제목
+        String title = boardEntity.getTitle();
+
+        //내용
+        String input = saveCashBoardBean.exec(boardEntity.getContent());
+
+        // 시간 생성
+        LocalDateTime uTime = boardEntity.getUploadTime();
+        LocalDateTime mTime = boardEntity.getModifyTime();
+
+
+        // 스토리보드 데이터 저장
+        return new CashBoardEntity(id, "1", title, input, uTime, mTime);
     }
 }

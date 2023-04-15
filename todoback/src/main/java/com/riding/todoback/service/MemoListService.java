@@ -27,7 +27,7 @@ public class MemoListService {
 
 
     // 메모장 데이터 저장
-    public boolean saveBoardEntity(RequestBoardInput requestBoardInput){
+    public Long saveBoardEntity(RequestBoardInput requestBoardInput){
         return saveBoardBean.exec(requestBoardInput);
     }
 
