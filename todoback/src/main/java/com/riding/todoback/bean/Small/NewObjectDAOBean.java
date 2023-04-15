@@ -81,4 +81,6 @@ public class NewObjectDAOBean {
         // 스토리보드 데이터 저장
         return new CashBoardEntity(id, "1", title, input, uTime, mTime);
     }
+
+
 }

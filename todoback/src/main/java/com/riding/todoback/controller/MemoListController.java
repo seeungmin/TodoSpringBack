@@ -42,22 +42,34 @@ public class MemoListController {
 
     @PostMapping("modifyBoard")
     @ResponseBody
-    public ResponseEntity<String> boardModify(@RequestBody RequestBoardModify requestBoardModify){
-        boolean modify = memoListService.modifyBoardEntity(requestBoardModify);
+    public ResponseEntity<Map<String, Object>> boardModify(@RequestBody RequestBoardModify requestBoardModify){
+        Long id = memoListService.modifyBoardEntity(requestBoardModify);
 
-        HttpStatus httpStatus = modify ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
+        // HTTP 상태 반환
+        HttpStatus httpStatus = (id != null) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
 
-        return ResponseEntity.status(httpStatus).body(modify ? "Modify Success" : "Modify Fail");
+        // 메시지와 id 값 json 데이터로 반환
+        Map<String, Object> requestMap = new HashMap<>();
+        requestMap.put("message", (id != null) ? "Modify Success" : "Modify Fail");
+        requestMap.put("id", id);
+
+        return ResponseEntity.status(httpStatus).body(requestMap);
     }
 
     @PostMapping("boardDelete")
     @ResponseBody
-    public ResponseEntity<String> todoDelete(@RequestBody RequestBoardDelete requestBoardDelete){
-        boolean delete = memoListService.deleteBoardEntity(requestBoardDelete);
+    public ResponseEntity<Map<String, Object>> todoDelete(@RequestBody RequestBoardDelete requestBoardDelete){
+        Long id = memoListService.deleteBoardEntity(requestBoardDelete);
 
-        HttpStatus httpStatus = delete ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
+        // HTTP 상태 반환
+        HttpStatus httpStatus = (id != null) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
 
-        return ResponseEntity.status(httpStatus).body(delete ? "Delete Success" : "Delete Fail");
+        // 메시지와 id 값 json 데이터로 반환
+        Map<String, Object> requestMap = new HashMap<>();
+        requestMap.put("message", (id != null) ? "Delete Success" : "Delete Fail");
+        requestMap.put("id", id);
+
+        return ResponseEntity.status(httpStatus).body(requestMap);
     }
 
     // 메모장 임시저장 데이터 저장

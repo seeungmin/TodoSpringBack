@@ -48,4 +48,5 @@ public class SaveDAOBean {
     public void exec(CashBoardEntity cashBoardEntity){
         cashBoardRepositoryJPA.save(cashBoardEntity);
     }
+
 }

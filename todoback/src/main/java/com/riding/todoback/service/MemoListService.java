@@ -43,12 +43,12 @@ public class MemoListService {
 
 
     // 메모장 수정
-    public boolean modifyBoardEntity(RequestBoardModify requestBoardModify){
+    public Long modifyBoardEntity(RequestBoardModify requestBoardModify){
         return modifyBoardBean.exec(requestBoardModify);
     }
 
     // 메모장 삭제
-    public boolean deleteBoardEntity(RequestBoardDelete requestBoardDelete){
+    public Long deleteBoardEntity(RequestBoardDelete requestBoardDelete){
         return deleteBoardBean.exec(requestBoardDelete);
     }
 
