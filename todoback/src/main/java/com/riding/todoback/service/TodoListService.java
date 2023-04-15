@@ -36,17 +36,17 @@ public class TodoListService {
     }
 
     // 다 한 일 데이터 저장
-    public void saveFinishedTodoEntity(RequestFinishTodoInput requestFinishTodoInput){
-        saveFinishedTodoBean.exec(requestFinishTodoInput);
+    public Long saveFinishedTodoEntity(RequestFinishTodoInput requestFinishTodoInput){
+        return saveFinishedTodoBean.exec(requestFinishTodoInput);
     }
 
     // 할 일 데이터 수정
-    public boolean modifyTodoEntity(RequestTodoModify requestTodoModify){
+    public Long modifyTodoEntity(RequestTodoModify requestTodoModify){
         return modifyTodoBean.exec(requestTodoModify);
     }
 
     // 할 일 삭제
-    public boolean deleteTodoEntity(RequestTodoDelete requestTodoDelete){
+    public Long deleteTodoEntity(RequestTodoDelete requestTodoDelete){
         return deleteTodoBean.exec(requestTodoDelete);
     }
 

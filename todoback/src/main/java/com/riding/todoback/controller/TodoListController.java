@@ -71,7 +71,7 @@ public class TodoListController {
 
         // 메시지와 id 값 json 데이터로 반환
         Map<String, Object> requestMap = new HashMap<>();
-        requestMap.put("message", (id != null) ? "Modify Success" : "Create Fail");
+        requestMap.put("message", (id != null) ? "Modify Success" : "Modify Fail");
         requestMap.put("id", id);
 
         return ResponseEntity.status(httpStatus).body(requestMap);
@@ -84,12 +84,18 @@ public class TodoListController {
     // 할 일 삭제
     @PostMapping("todoDelete")
     @ResponseBody
-    public ResponseEntity<String> todoDelete(@RequestBody RequestTodoDelete requestTodoDelete){
-        boolean delete = todoListService.deleteTodoEntity(requestTodoDelete);
+    public ResponseEntity<Map<String, Object>> todoDelete(@RequestBody RequestTodoDelete requestTodoDelete){
+        Long id = todoListService.deleteTodoEntity(requestTodoDelete);
 
-        HttpStatus httpStatus = delete ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
+        // HTTP 상태 반환
+        HttpStatus httpStatus = (id != null) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
 
-        return ResponseEntity.status(httpStatus).body(delete ? "Delete Success" : "Delete Fail");
+        // 메시지와 id 값 json 데이터로 반환
+        Map<String, Object> requestMap = new HashMap<>();
+        requestMap.put("message", (id != null) ? "Delete Success" : "Delete Fail");
+        requestMap.put("id", id);
+
+        return ResponseEntity.status(httpStatus).body(requestMap);
     }
 
 
