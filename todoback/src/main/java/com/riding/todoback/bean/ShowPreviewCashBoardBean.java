@@ -1,7 +1,7 @@
 package com.riding.todoback.bean;
 
 import com.riding.todoback.bean.Small.GetCahBoardDAOsBean;
-import com.riding.todoback.bean.Small.NewObjectDAOsBean;
+import com.riding.todoback.bean.Small.SaveCashBoardDTOsBean;
 import com.riding.todoback.model.DTO.RequestPreviewCashBoardAll;
 import com.riding.todoback.model.entity.CashBoardEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,22 +13,20 @@ import java.util.List;
 public class ShowPreviewCashBoardBean {
 
     GetCahBoardDAOsBean getCahBoardDAOsBean;
-    NewObjectDAOsBean newObjectDAOsBean;
+    SaveCashBoardDTOsBean saveCashBoardDTOsBean;
 
     @Autowired
-    public ShowPreviewCashBoardBean(GetCahBoardDAOsBean getCahBoardDAOsBean, NewObjectDAOsBean newObjectDAOsBean) {
+    public ShowPreviewCashBoardBean(GetCahBoardDAOsBean getCahBoardDAOsBean, SaveCashBoardDTOsBean saveCashBoardDTOsBean) {
         this.getCahBoardDAOsBean = getCahBoardDAOsBean;
-        this.newObjectDAOsBean = newObjectDAOsBean;
+        this.saveCashBoardDTOsBean = saveCashBoardDTOsBean;
     }
 
     public List<RequestPreviewCashBoardAll> exec(){
         // 캐시메모 객체 전부 받아오기
         List<CashBoardEntity> cashBoardEntities = getCahBoardDAOsBean.exec();
 
-        // 캐시메모 객체 전부 DTO 객체에 저장
-        List<RequestPreviewCashBoardAll> requestPreviewCashBoardAlls = newObjectDAOsBean.exec(cashBoardEntities);
+        // 캐시메모 객체 전부 DTO 객체에 저장 및 반환
+        return saveCashBoardDTOsBean.exec(cashBoardEntities);
 
-        // DTO 객체 반환
-        return requestPreviewCashBoardAlls;
     }
 }

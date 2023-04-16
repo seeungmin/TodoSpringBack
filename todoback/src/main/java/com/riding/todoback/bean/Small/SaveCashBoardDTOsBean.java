@@ -8,8 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class NewObjectDAOsBean {
-
+public class SaveCashBoardDTOsBean {
     // 캐시 메모 전체 DTO 객체에 저장
     public List<RequestPreviewCashBoardAll> exec(List<CashBoardEntity> cashBoardEntityList){
         // cashBoard 에 있는 데이터를 옮겨서 저장할 리스트 저장
