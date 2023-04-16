@@ -1,30 +1,17 @@
 package com.riding.todoback.bean.Small;
 
-import com.riding.todoback.entity.CashBoardEntity;
 import com.riding.todoback.model.DTO.RequestPreviewCashBoardAll;
-import com.riding.todoback.repository.CashBoardRepositoryJPA;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.riding.todoback.model.entity.CashBoardEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class ShowPreviewCashBoardDAOBean {
+public class NewObjectDAOsBean {
 
-    CashBoardRepositoryJPA cashBoardRepositoryJPA;
-
-    @Autowired
-    public ShowPreviewCashBoardDAOBean(CashBoardRepositoryJPA cashBoardRepositoryJPA) {
-        this.cashBoardRepositoryJPA = cashBoardRepositoryJPA;
-    }
-
-
-    public List<RequestPreviewCashBoardAll> exec() {
-
-        // cashBoard 데이터를 전부 List 로 저장
-        List<CashBoardEntity> cashBoardEntityList = new ArrayList<>(cashBoardRepositoryJPA.findAll());
-
+    // 캐시 메모 전체 DTO 객체에 저장
+    public List<RequestPreviewCashBoardAll> exec(List<CashBoardEntity> cashBoardEntityList){
         // cashBoard 에 있는 데이터를 옮겨서 저장할 리스트 저장
         List<RequestPreviewCashBoardAll> requestPreviewCashBoardAllList = new ArrayList<>();
 
@@ -40,7 +27,6 @@ public class ShowPreviewCashBoardDAOBean {
             requestPreviewCashBoardAllList.add(requestPreviewCashBoardAll);
         }
 
-        // 데이터가 옮겨진 List 를 반환
         return requestPreviewCashBoardAllList;
     }
 }

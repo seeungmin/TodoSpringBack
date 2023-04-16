@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class GetBoardEntityBean {
+public class GetBoardDAOBean {
     BoardRepositoryJPA boardRepositoryJPA;
 
     @Autowired
-    public GetBoardEntityBean(BoardRepositoryJPA boardRepositoryJPA) {
+    public GetBoardDAOBean(BoardRepositoryJPA boardRepositoryJPA) {
         this.boardRepositoryJPA = boardRepositoryJPA;
     }
 

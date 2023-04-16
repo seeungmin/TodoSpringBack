@@ -1,6 +1,6 @@
 package com.riding.todoback.bean;
 
-import com.riding.todoback.bean.Small.GetBoardEntityBean;
+import com.riding.todoback.bean.Small.GetBoardDAOBean;
 import com.riding.todoback.bean.Small.NewObjectDAOBean;
 import com.riding.todoback.model.DTO.RequestDetailBoardInquire;
 import com.riding.todoback.model.entity.BoardEntity;
@@ -10,11 +10,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class InquireDetailBoardBean {
 
-    GetBoardEntityBean getBoardEntityBean;
+    GetBoardDAOBean getBoardEntityBean;
     NewObjectDAOBean newObjectDAOBean;
-    
+
     @Autowired
-    public InquireDetailBoardBean(GetBoardEntityBean getBoardEntityBean, NewObjectDAOBean newObjectDAOBean) {
+    public InquireDetailBoardBean(GetBoardDAOBean getBoardEntityBean, NewObjectDAOBean newObjectDAOBean) {
         this.getBoardEntityBean = getBoardEntityBean;
         this.newObjectDAOBean = newObjectDAOBean;
     }
