@@ -41,7 +41,7 @@ public class NewObjectDAOBean {
         // 내용 받기
         FinishedTodoEntity finishedTodoEntity = new FinishedTodoEntity();
         finishedTodoEntity.setId(todoEntity.getId());
-        finishedTodoEntity.setMember_Id(todoEntity.getMember_Id());
+        finishedTodoEntity.setMember_Id(todoEntity.getMemberId());
         finishedTodoEntity.setContent(todoEntity.getContent());
         finishedTodoEntity.setUploadTime(todoEntity.getUploadTime());
         finishedTodoEntity.setCompletionTime(LocalDateTime.now());
