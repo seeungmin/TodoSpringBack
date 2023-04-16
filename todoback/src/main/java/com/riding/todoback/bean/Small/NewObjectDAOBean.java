@@ -89,7 +89,7 @@ public class NewObjectDAOBean {
         // DTO 객체에 메모 객체 넘기기
         RequestDetailBoardInquire requestDetailBoardInquire = new RequestDetailBoardInquire();
         requestDetailBoardInquire.setId(boardEntity.getId());
-        requestDetailBoardInquire.setMember_Id(boardEntity.getMember_Id());
+        requestDetailBoardInquire.setMember_Id(boardEntity.getMemberId());
         requestDetailBoardInquire.setTitle(boardEntity.getTitle());
         requestDetailBoardInquire.setContent(boardEntity.getContent());
         requestDetailBoardInquire.setUploadTime(boardEntity.getUploadTime());

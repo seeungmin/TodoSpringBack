@@ -18,7 +18,7 @@ public class SaveCashBoardDTOsBean {
         for (CashBoardEntity cashBoardEntity : cashBoardEntityList) {
             RequestPreviewCashBoardAll requestPreviewCashBoardAll = new RequestPreviewCashBoardAll();
             requestPreviewCashBoardAll.setId(cashBoardEntity.getId());
-            requestPreviewCashBoardAll.setMember_Id(cashBoardEntity.getMember_Id());
+            requestPreviewCashBoardAll.setMember_Id(cashBoardEntity.getMemberId());
             requestPreviewCashBoardAll.setTitle(cashBoardEntity.getTitle());
             requestPreviewCashBoardAll.setCashData(cashBoardEntity.getCashData());
             requestPreviewCashBoardAll.setUploadTime(cashBoardEntity.getUploadTime());

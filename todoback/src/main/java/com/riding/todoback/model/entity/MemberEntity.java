@@ -13,7 +13,7 @@ import javax.persistence.Id;
 @Getter
 public class MemberEntity {
     @Id
-    String member_Id;
+    String memberId;
     String password;
     String name;
 }
