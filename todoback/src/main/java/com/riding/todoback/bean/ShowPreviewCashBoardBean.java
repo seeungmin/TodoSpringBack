@@ -1,6 +1,6 @@
 package com.riding.todoback.bean;
 
-import com.riding.todoback.bean.Small.GetCahBoardDAOsBean;
+import com.riding.todoback.bean.Small.GetCashBoardDAOsBean;
 import com.riding.todoback.bean.Small.SaveCashBoardDTOsBean;
 import com.riding.todoback.model.DTO.RequestPreviewCashBoardAll;
 import com.riding.todoback.model.entity.CashBoardEntity;
@@ -12,11 +12,11 @@ import java.util.List;
 @Component
 public class ShowPreviewCashBoardBean {
 
-    GetCahBoardDAOsBean getCahBoardDAOsBean;
+    GetCashBoardDAOsBean getCahBoardDAOsBean;
     SaveCashBoardDTOsBean saveCashBoardDTOsBean;
 
     @Autowired
-    public ShowPreviewCashBoardBean(GetCahBoardDAOsBean getCahBoardDAOsBean, SaveCashBoardDTOsBean saveCashBoardDTOsBean) {
+    public ShowPreviewCashBoardBean(GetCashBoardDAOsBean getCahBoardDAOsBean, SaveCashBoardDTOsBean saveCashBoardDTOsBean) {
         this.getCahBoardDAOsBean = getCahBoardDAOsBean;
         this.saveCashBoardDTOsBean = saveCashBoardDTOsBean;
     }

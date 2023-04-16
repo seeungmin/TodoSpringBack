@@ -10,18 +10,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class SaveFinishedTodoBean {
 
-    FindByIdDAOBean findByIdDAOBean;
+    GetTodoDAOBean getTodoDAOBean;
     NewObjectDAOBean newObjectDAOBean;
     SaveDAOBean saveDAOBean;
     DeleteDAOBean deleteDAOBean;
 
-    @Autowired
-    public SaveFinishedTodoBean(FindByIdDAOBean findByIdDAOBean, NewObjectDAOBean newObjectDAOBean, SaveDAOBean saveDAOBean, DeleteDAOBean deleteDAOBean) {
-        this.findByIdDAOBean = findByIdDAOBean;
-        this.newObjectDAOBean = newObjectDAOBean;
-        this.saveDAOBean = saveDAOBean;
-        this.deleteDAOBean = deleteDAOBean;
-    }
+
 
     // 다 한일 데이터 저장
     public Long exec(RequestFinishTodoInput requestFinishTodoInput){
@@ -30,7 +24,7 @@ public class SaveFinishedTodoBean {
         long id = requestFinishTodoInput.getId();
 
         // 아이디로 할 일 객체 받아오기
-        TodoEntity todoEntity = findByIdDAOBean.exec(id);
+        TodoEntity todoEntity = getTodoDAOBean.exec(id);
 
         // 다 한 일 저장할 객체 생성
         FinishedTodoEntity finishedTodoEntity = newObjectDAOBean.exec(todoEntity);

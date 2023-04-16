@@ -1,6 +1,6 @@
 package com.riding.todoback.bean;
 
-import com.riding.todoback.bean.Small.FindByIdDAOBean;
+import com.riding.todoback.bean.Small.GetTodoDAOBean;
 import com.riding.todoback.bean.Small.ModifyObjectDAOBean;
 import com.riding.todoback.bean.Small.SaveDAOBean;
 import com.riding.todoback.model.DTO.RequestTodoModify;
@@ -11,13 +11,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ModifyTodoBean {
-    FindByIdDAOBean findByIdDAOBean;
+    GetTodoDAOBean getTodoDAOBean;
     ModifyObjectDAOBean modifyObjectDAOBean;
     SaveDAOBean saveDAOBean;
 
     @Autowired
-    public ModifyTodoBean(FindByIdDAOBean findByIdDAOBean, ModifyObjectDAOBean modifyObjectDAOBean, SaveDAOBean saveDAOBean) {
-        this.findByIdDAOBean = findByIdDAOBean;
+    public ModifyTodoBean(GetTodoDAOBean getTodoDAOBean, ModifyObjectDAOBean modifyObjectDAOBean, SaveDAOBean saveDAOBean) {
+        this.getTodoDAOBean = getTodoDAOBean;
         this.modifyObjectDAOBean = modifyObjectDAOBean;
         this.saveDAOBean = saveDAOBean;
     }
@@ -28,7 +28,7 @@ public class ModifyTodoBean {
         long id = requestTodoModify.getId();
 
         // 아이디로 수정할 할 일 찾기
-        TodoEntity todoEntity = findByIdDAOBean.exec(id);
+        TodoEntity todoEntity = getTodoDAOBean.exec(id);
 
         // 할 일 수정
         TodoEntity modifyTodoEntity = modifyObjectDAOBean.exec(todoEntity, requestTodoModify);

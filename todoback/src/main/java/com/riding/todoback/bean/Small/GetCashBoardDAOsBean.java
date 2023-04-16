@@ -9,12 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class GetCahBoardDAOsBean {
+public class GetCashBoardDAOsBean {
 
     CashBoardRepositoryJPA cashBoardRepositoryJPA;
 
     @Autowired
-    public GetCahBoardDAOsBean(CashBoardRepositoryJPA cashBoardRepositoryJPA) {
+    public GetCashBoardDAOsBean(CashBoardRepositoryJPA cashBoardRepositoryJPA) {
         this.cashBoardRepositoryJPA = cashBoardRepositoryJPA;
     }
 
