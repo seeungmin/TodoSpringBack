@@ -1,6 +1,7 @@
 package com.riding.todoback.bean.Small;
 
 import com.riding.todoback.model.DTO.RequestBoardInput;
+import com.riding.todoback.model.DTO.RequestDetailBoardInquire;
 import com.riding.todoback.model.DTO.RequestTodoInput;
 import com.riding.todoback.model.entity.BoardEntity;
 import com.riding.todoback.model.entity.CashBoardEntity;
@@ -82,5 +83,19 @@ public class NewObjectDAOBean {
         return new CashBoardEntity(id, "1", title, input, uTime, mTime);
     }
 
+    // 조회한 메모 객체 DTO 생성
+    public RequestDetailBoardInquire exec(BoardEntity boardEntity){
+
+        // DTO 객체에 메모 객체 넘기기
+        RequestDetailBoardInquire requestDetailBoardInquire = new RequestDetailBoardInquire();
+        requestDetailBoardInquire.setId(boardEntity.getId());
+        requestDetailBoardInquire.setMember_Id(boardEntity.getMember_Id());
+        requestDetailBoardInquire.setTitle(boardEntity.getTitle());
+        requestDetailBoardInquire.setContent(boardEntity.getContent());
+        requestDetailBoardInquire.setUploadTime(boardEntity.getUploadTime());
+        requestDetailBoardInquire.setModifyTime(boardEntity.getModifyTime());
+
+        return requestDetailBoardInquire;
+    }
 
 }
