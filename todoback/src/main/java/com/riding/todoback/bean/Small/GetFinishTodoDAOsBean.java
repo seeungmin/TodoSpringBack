@@ -19,6 +19,6 @@ public class GetFinishTodoDAOsBean {
 
     // 다 한일 객체 전부 찾기
     public List<FinishedTodoEntity> exec(){
-        return new ArrayList<>(finishedTodoRepositoryJPA.findAll());
+        return new ArrayList<>(finishedTodoRepositoryJPA.findByMemberId("1"));
     }
 }

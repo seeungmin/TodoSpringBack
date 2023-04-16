@@ -18,7 +18,7 @@ public class SaveFinishTodoDTOsBean {
         for (FinishedTodoEntity finishedTodoEntity: finishedTodoEntities) {
             RequestPreviewFinishTodoAll requestPreviewFinishTodoAll = new RequestPreviewFinishTodoAll();
             requestPreviewFinishTodoAll.setId(finishedTodoEntity.getId());
-            requestPreviewFinishTodoAll.setMember_Id(finishedTodoEntity.getMember_Id());
+            requestPreviewFinishTodoAll.setMember_Id(finishedTodoEntity.getMemberId());
             requestPreviewFinishTodoAll.setContent(finishedTodoEntity.getContent());
             requestPreviewFinishTodoAll.setUploadTime(finishedTodoEntity.getUploadTime());
             requestPreviewFinishTodoAll.setCompletionTime(finishedTodoEntity.getCompletionTime());
