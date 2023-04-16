@@ -1,7 +1,6 @@
 package com.riding.todoback.service;
 
 import com.riding.todoback.bean.*;
-import com.riding.todoback.bean.Small.ShowFinishTodoDAOBean;
 import com.riding.todoback.model.DTO.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,17 +16,17 @@ public class TodoListService {
     DeleteFinishedTodoBean deleteFinishedTodoBean;
     ModifyTodoBean modifyTodoBean;
     ShowTodoBean showTodoBean;
-    ShowFinishTodoDAOBean showFinishTodoDAOBean;
+    ShowFinishTodoBean showFinishTodoBean;
 
     @Autowired
-    public TodoListService(SaveTodoBean saveTodoBean, SaveFinishedTodoBean saveFinishedTodoBean, DeleteTodoBean deleteTodoBean, DeleteFinishedTodoBean deleteFinishedTodoBean, ModifyTodoBean modifyTodoBean, ShowTodoBean showTodoBean, ShowFinishTodoDAOBean showFinishTodoDAOBean) {
+    public TodoListService(SaveTodoBean saveTodoBean, SaveFinishedTodoBean saveFinishedTodoBean, DeleteTodoBean deleteTodoBean, DeleteFinishedTodoBean deleteFinishedTodoBean, ModifyTodoBean modifyTodoBean, ShowTodoBean showTodoBean, ShowFinishTodoBean showFinishTodoBean) {
         this.saveTodoBean = saveTodoBean;
         this.saveFinishedTodoBean = saveFinishedTodoBean;
         this.deleteTodoBean = deleteTodoBean;
         this.deleteFinishedTodoBean = deleteFinishedTodoBean;
         this.modifyTodoBean = modifyTodoBean;
         this.showTodoBean = showTodoBean;
-        this.showFinishTodoDAOBean = showFinishTodoDAOBean;
+        this.showFinishTodoBean = showFinishTodoBean;
     }
 
     // 할 일 데이터 저장
@@ -63,7 +62,7 @@ public class TodoListService {
 
     // 다 한 일 전체 조회
     public List<RequestPreviewFinishTodoAll> showFinishTodoAllEntity(){
-        return showFinishTodoDAOBean.exec();
+        return showFinishTodoBean.exec();
     }
 
 }

@@ -1,7 +1,7 @@
 package com.riding.todoback.bean.test;
 
 import com.riding.todoback.bean.Small.GenerateUniqueIdBean;
-import com.riding.todoback.entity.test.TemporaryMemoEntity;
+import com.riding.todoback.model.entity.test.TemporaryMemoEntity;
 import com.riding.todoback.repository.BoardRepositoryJPA;
 import com.riding.todoback.repository.test.TemporaryMemoRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;
