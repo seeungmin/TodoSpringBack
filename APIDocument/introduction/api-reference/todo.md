@@ -71,7 +71,10 @@ description: 할 일 관련 API
 
 {% swagger-response status="200: OK" description="수정 완료" %}
 ```
-Modify Success
+{
+    "id": 유니크한 할 일 아이디
+    "message": "Modify Success"
+}
 ```
 {% endswagger-response %}
 {% endswagger %}
@@ -93,7 +96,10 @@ Modify Success
 
 {% swagger-response status="200: OK" description="할 일 삭제 완료" %}
 ```
-Delete Success
+{
+    "id": 유니크한 할 일 아이디
+    "message": "Delete Success"
+}
 ```
 {% endswagger-response %}
 {% endswagger %}
@@ -113,9 +119,12 @@ Delete Success
 삭제할 다 한일 아이디 입력
 {% endswagger-parameter %}
 
-{% swagger-response status="200: OK" description="할 일 삭제 완료" %}
+{% swagger-response status="200: OK" description="다 한 일 삭제 완료" %}
 ```
-Delete Success
+{
+    "id": 유니크한 할 일 아이디
+    "message": "Delete Success"
+}
 ```
 {% endswagger-response %}
 {% endswagger %}

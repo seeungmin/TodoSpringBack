@@ -21,7 +21,10 @@ description: 메모장 관련 API
 
 {% swagger-response status="200: OK" description="메모 저장 완료" %}
 ```
-Create Success
+{
+    "id": 유니크한 할 일 아이디
+    "message": "Create Success"
+}
 ```
 {% endswagger-response %}
 {% endswagger %}
@@ -51,7 +54,10 @@ Create Success
 
 {% swagger-response status="200: OK" description="메모 수정 완료" %}
 ```
-Modify Success
+{
+    "id": 유니크한 할 일 아이디
+    "message": "Modify Success"
+}
 ```
 {% endswagger-response %}
 {% endswagger %}
@@ -72,8 +78,10 @@ Modify Success
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="메모 저장 완료" %}
-```
-Delete Success
-```
+<pre><code><strong>{
+</strong>    "id": 유니크한 할 일 아이디
+    "message": "Delete Success"
+}
+</code></pre>
 {% endswagger-response %}
 {% endswagger %}
