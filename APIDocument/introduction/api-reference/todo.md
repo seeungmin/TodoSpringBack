@@ -159,7 +159,7 @@ description: 할 일 관련 API
 
 ## 다 한 일 전체조회
 
-{% swagger method="get" path="/previewFinishTodo" baseUrl="http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000/previewFinishTodo" summary="다 한 일 전체를 조회" %}
+{% swagger method="get" path="/previewFinishTodo" baseUrl="http://ec2-18-183-36-88.ap-northeast-1.compute.amazonaws.com:8000" summary="다 한 일 전체를 조회" %}
 {% swagger-description %}
 
 {% endswagger-description %}
