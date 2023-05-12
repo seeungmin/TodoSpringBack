@@ -15,7 +15,13 @@ public class SaveFinishedTodoBean {
     SaveDAOBean saveDAOBean;
     DeleteDAOBean deleteDAOBean;
 
-
+    @Autowired
+    public SaveFinishedTodoBean(GetTodoDAOBean getTodoDAOBean, NewObjectDAOBean newObjectDAOBean, SaveDAOBean saveDAOBean, DeleteDAOBean deleteDAOBean) {
+        this.getTodoDAOBean = getTodoDAOBean;
+        this.newObjectDAOBean = newObjectDAOBean;
+        this.saveDAOBean = saveDAOBean;
+        this.deleteDAOBean = deleteDAOBean;
+    }
 
     // 다 한일 데이터 저장
     public Long exec(RequestFinishTodoInput requestFinishTodoInput){
