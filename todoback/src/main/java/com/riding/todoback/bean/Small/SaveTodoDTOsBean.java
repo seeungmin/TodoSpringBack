@@ -19,7 +19,7 @@ public class SaveTodoDTOsBean {
         for (TodoEntity todoEntity: todoEntities) {
             RequestPreviewTodoAll requestPreviewTodoAll = new RequestPreviewTodoAll();
             requestPreviewTodoAll.setId(todoEntity.getId());
-            requestPreviewTodoAll.setMember_Id(todoEntity.getMemberId());
+            requestPreviewTodoAll.setUserId(todoEntity.getUserId());
             requestPreviewTodoAll.setContent(todoEntity.getContent());
             requestPreviewTodoAll.setUploadTime(todoEntity.getUploadTime());
             requestPreviewTodoAll.setModifyTime(todoEntity.getModifyTime());

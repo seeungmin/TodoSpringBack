@@ -3,10 +3,8 @@ package com.riding.todoback.bean.Small;
 import com.riding.todoback.model.DTO.RequestBoardInput;
 import com.riding.todoback.model.DTO.RequestDetailBoardInquire;
 import com.riding.todoback.model.DTO.RequestTodoInput;
-import com.riding.todoback.model.entity.BoardEntity;
-import com.riding.todoback.model.entity.CashBoardEntity;
-import com.riding.todoback.model.entity.FinishedTodoEntity;
-import com.riding.todoback.model.entity.TodoEntity;
+import com.riding.todoback.model.DTO.RequestUserInput;
+import com.riding.todoback.model.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -41,7 +39,7 @@ public class NewObjectDAOBean {
         // 내용 받기
         FinishedTodoEntity finishedTodoEntity = new FinishedTodoEntity();
         finishedTodoEntity.setId(todoEntity.getId());
-        finishedTodoEntity.setMemberId(todoEntity.getMemberId());
+        finishedTodoEntity.setUserId(todoEntity.getUserId());
         finishedTodoEntity.setContent(todoEntity.getContent());
         finishedTodoEntity.setUploadTime(todoEntity.getUploadTime());
         finishedTodoEntity.setCompletionTime(LocalDateTime.now());
@@ -89,13 +87,29 @@ public class NewObjectDAOBean {
         // DTO 객체에 메모 객체 넘기기
         RequestDetailBoardInquire requestDetailBoardInquire = new RequestDetailBoardInquire();
         requestDetailBoardInquire.setId(boardEntity.getId());
-        requestDetailBoardInquire.setMember_Id(boardEntity.getMemberId());
+        requestDetailBoardInquire.setUserId(boardEntity.getUserId());
         requestDetailBoardInquire.setTitle(boardEntity.getTitle());
         requestDetailBoardInquire.setContent(boardEntity.getContent());
         requestDetailBoardInquire.setUploadTime(boardEntity.getUploadTime());
         requestDetailBoardInquire.setModifyTime(boardEntity.getModifyTime());
 
         return requestDetailBoardInquire;
+    }
+
+    // 유저 객체 생성
+    public UserEntity exec(Long id, RequestUserInput requestUserInput) {
+
+        // 아이디
+        String userId = requestUserInput.getUserId();
+
+        // 이메일
+        String email = requestUserInput.getEmail();
+
+        // 닉네임
+        String nickName = requestUserInput.getNickName();
+
+        // 메모장 데이터 저장
+        return new UserEntity(id, userId, email, nickName);
     }
 
 }

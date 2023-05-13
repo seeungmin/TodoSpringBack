@@ -19,6 +19,6 @@ public class GetTodoDAOsBean {
 
     // 할 일 전부 찾아서 반환
     public List<TodoEntity> exec(){
-        return new ArrayList<>(todoRepositoryJPA.findByMemberId("1"));
+        return new ArrayList<>(todoRepositoryJPA.findByUserId("1"));
     }
 }

@@ -1,13 +1,7 @@
 package com.riding.todoback.bean.Small;
 
-import com.riding.todoback.model.entity.BoardEntity;
-import com.riding.todoback.model.entity.CashBoardEntity;
-import com.riding.todoback.model.entity.FinishedTodoEntity;
-import com.riding.todoback.model.entity.TodoEntity;
-import com.riding.todoback.repository.BoardRepositoryJPA;
-import com.riding.todoback.repository.CashBoardRepositoryJPA;
-import com.riding.todoback.repository.FinishedTodoRepositoryJPA;
-import com.riding.todoback.repository.TodoRepositoryJPA;
+import com.riding.todoback.model.entity.*;
+import com.riding.todoback.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,13 +13,15 @@ public class SaveDAOBean {
     FinishedTodoRepositoryJPA finishedTodoRepositoryJPA;
     BoardRepositoryJPA boardRepositoryJPA;
     CashBoardRepositoryJPA cashBoardRepositoryJPA;
+    UserRepositoryJPA userRepositoryJPA;
 
     @Autowired
-    public SaveDAOBean(TodoRepositoryJPA todoRepositoryJPA, FinishedTodoRepositoryJPA finishedTodoRepositoryJPA, BoardRepositoryJPA boardRepositoryJPA, CashBoardRepositoryJPA cashBoardRepositoryJPA) {
+    public SaveDAOBean(TodoRepositoryJPA todoRepositoryJPA, FinishedTodoRepositoryJPA finishedTodoRepositoryJPA, BoardRepositoryJPA boardRepositoryJPA, CashBoardRepositoryJPA cashBoardRepositoryJPA, UserRepositoryJPA userRepositoryJPA) {
         this.todoRepositoryJPA = todoRepositoryJPA;
         this.finishedTodoRepositoryJPA = finishedTodoRepositoryJPA;
         this.boardRepositoryJPA = boardRepositoryJPA;
         this.cashBoardRepositoryJPA = cashBoardRepositoryJPA;
+        this.userRepositoryJPA = userRepositoryJPA;
     }
 
     // 할 일 저장하기
@@ -47,6 +43,11 @@ public class SaveDAOBean {
     // 캐시 메모 저장하기
     public void exec(CashBoardEntity cashBoardEntity){
         cashBoardRepositoryJPA.save(cashBoardEntity);
+    }
+
+    // 유저 저장하기
+    public void exec(UserEntity userEntity){
+        userRepositoryJPA.save(userEntity);
     }
 
 }

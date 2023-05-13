@@ -20,6 +20,6 @@ public class GetCashBoardDAOsBean {
 
     public List<CashBoardEntity> exec(){
         // 모든 캐시메모 데이터 객체 받기
-        return new ArrayList<>(cashBoardRepositoryJPA.findByMemberId("1"));
+        return new ArrayList<>(cashBoardRepositoryJPA.findByUserId("1"));
     }
 }

@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface CashBoardRepositoryJPA extends JpaRepository<CashBoardEntity, Long> {
-    List<CashBoardEntity> findByMemberId(String member_id);
+    List<CashBoardEntity> findByUserId(String userId);
 }

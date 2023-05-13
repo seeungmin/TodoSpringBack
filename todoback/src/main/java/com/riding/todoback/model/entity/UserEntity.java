@@ -13,6 +13,7 @@ import javax.persistence.Id;
 @Getter
 public class UserEntity {
     @Id
+    Long id;
     String userId;
     //String password;
     String nickName;

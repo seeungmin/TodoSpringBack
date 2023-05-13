@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface FinishedTodoRepositoryJPA extends JpaRepository<FinishedTodoEntity, Long> {
-    List<FinishedTodoEntity> findByMemberId(String member_id);
+    List<FinishedTodoEntity> findByUserId(String userId);
 }
