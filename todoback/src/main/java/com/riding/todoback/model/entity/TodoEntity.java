@@ -18,7 +18,7 @@ public class TodoEntity {
 
     @Id
     private long id;
-    String memberId;
+    String userId;
     String content;
     LocalDateTime uploadTime;
     LocalDateTime modifyTime;

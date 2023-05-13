@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 public class FinishedTodoEntity {
     @Id
     private long id;
-    String memberId;
+    String userId;
     String content;
     LocalDateTime uploadTime;
     LocalDateTime completionTime;

@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 public class CashBoardEntity {
     @Id
     private long id;
-    String memberId;
+    String userId;
     String title;
     String cashData;
     LocalDateTime uploadTime;

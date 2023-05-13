@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 @Data
 public class RequestPreviewCashBoardAll {
     long id;
-    String member_Id;
+    String userId;
     String title;
     String cashData;
     LocalDateTime uploadTime;

@@ -11,9 +11,10 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class MemberEntity {
+public class UserEntity {
     @Id
-    String memberId;
-    String password;
-    String name;
+    String userId;
+    //String password;
+    String nickName;
+    String email;
 }

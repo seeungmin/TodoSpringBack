@@ -1,7 +1,7 @@
 package com.riding.todoback.repository;
 
-import com.riding.todoback.model.entity.MemberEntity;
+import com.riding.todoback.model.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface MemberRepositoryJPA extends JpaRepository<MemberEntity, Long> {
+public interface UserRepositoryJPA extends JpaRepository<UserEntity, Long> {
 }

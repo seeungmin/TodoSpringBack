@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 @Data
 public class RequestDetailBoardInquire {
     long id;
-    String member_Id;
+    String userId;
     String title;
     String content;
     LocalDateTime uploadTime;

@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 @Data
 public class RequestPreviewTodoAll {
     long id;
-    String member_Id;
+    String userId;
     String content;
     LocalDateTime uploadTime;
     LocalDateTime modifyTime;

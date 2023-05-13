@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 public class BoardEntity {
     @Id
     private long id;
-    String memberId;
+    String userId;
     String title;
     String content;
     LocalDateTime uploadTime;
