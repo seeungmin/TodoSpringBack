@@ -1,57 +1,49 @@
 package com.riding.todoback.bean;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.riding.todoback.bean.Small.*;
 import com.riding.todoback.model.DTO.OAuthToken;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.client.RestTemplate;
 
 @Component
 public class GetKakaoOauthTokenBean {
 
+    NewHeaderDAOBean newHeaderDAOBean;
+    NewBodyDAOBean newBodyDAOBean;
+    NewHttpDAOBean newHttpDAOBean;
+    GetKakaoOauthTokenDAOBean getKakaoOauthTokenDAOBean;
+    NewKakaoOauthTokenDAOBean newKakaoOauthTokenDAOBean;
+
+    @Autowired
+    public GetKakaoOauthTokenBean(NewHeaderDAOBean newHeaderDAOBean, NewBodyDAOBean newBodyDAOBean, NewHttpDAOBean newHttpDAOBean, GetKakaoOauthTokenDAOBean getKakaoOauthTokenDAOBean, NewKakaoOauthTokenDAOBean newKakaoOauthTokenDAOBean) {
+        this.newHeaderDAOBean = newHeaderDAOBean;
+        this.newBodyDAOBean = newBodyDAOBean;
+        this.newHttpDAOBean = newHttpDAOBean;
+        this.getKakaoOauthTokenDAOBean = getKakaoOauthTokenDAOBean;
+        this.newKakaoOauthTokenDAOBean = newKakaoOauthTokenDAOBean;
+    }
+
+    // 카카오 OAuth Token 가져오기
     public OAuthToken exec(String code) throws JsonProcessingException {
 
         // 헤더 생성하기
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-type","application/x-www-form-urlencoded;charset=utf-8");
-
+        HttpHeaders httpHeaders = newHeaderDAOBean.exec(code);
 
         // 바디 생성하기
-        MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
-        params.add("grant_type","authorization_code");
-        params.add("client_id","775bf4e000ccfe5e6184c3cfbaed0e77");
-        params.add("redirect_uri","http://localhost:8000/auth/kakao/callback");
-        params.add("code",code);
+        MultiValueMap<String, String> params = newBodyDAOBean.exec(code);
 
         // 헤더와 바디 합치기
-        HttpEntity<MultiValueMap<String, String>> kakaoTokenRequest =
-                new HttpEntity<>(params, headers);
+        HttpEntity<MultiValueMap<String, String>> kakaoTokenRequest = newHttpDAOBean.exec(params, httpHeaders);
 
         // 토큰 정보 반환
-        RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> response = restTemplate.exchange(
-                "https://kauth.kakao.com/oauth/token",
-                HttpMethod.POST,
-                kakaoTokenRequest,
-                String.class
-        );
+        ResponseEntity<String> response = newKakaoOauthTokenDAOBean.exec(kakaoTokenRequest);
 
-        ObjectMapper objectMapper = new ObjectMapper();
-        OAuthToken oAuthToken = null;
-        try {
-            oAuthToken = objectMapper.readValue(response.getBody(), OAuthToken.class);
-        }catch (JsonMappingException e){
-            e.printStackTrace();
-        }catch (JsonProcessingException e){
-            e.printStackTrace();
-        }
-        return oAuthToken;
+        // 매핑 후 Token 반환
+        return getKakaoOauthTokenDAOBean.exec(response);
     }
 }
