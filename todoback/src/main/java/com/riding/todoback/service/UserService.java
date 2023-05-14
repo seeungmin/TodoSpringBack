@@ -8,7 +8,6 @@ import com.riding.todoback.model.DTO.KakaoProfile;
 import com.riding.todoback.model.DTO.OAuthToken;
 import com.riding.todoback.model.DTO.RequestUserInput;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -30,6 +29,7 @@ public class UserService {
         return loginUserBean.exec(requestUserInput);
     }
 
+    // 카카오 로그인
     public Long loginUserEntity(KakaoProfile kakaoProfile){
         return loginUserBean.exec(kakaoProfile);
     }
@@ -39,6 +39,7 @@ public class UserService {
         return getKakaoOauthTokenBean.exec(code);
     }
 
+    // 카카오 프로필 정보 받기
     public KakaoProfile GetKakaoProfile(OAuthToken oAuthToken) throws JsonProcessingException{
         return getKakaoProfileBean.exec(oAuthToken);
     }
