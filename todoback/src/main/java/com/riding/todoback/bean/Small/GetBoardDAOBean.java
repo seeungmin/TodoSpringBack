@@ -1,6 +1,5 @@
 package com.riding.todoback.bean.Small;
 
-import com.riding.todoback.model.DTO.RequestBoardModify;
 import com.riding.todoback.model.entity.BoardEntity;
 import com.riding.todoback.repository.BoardRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;

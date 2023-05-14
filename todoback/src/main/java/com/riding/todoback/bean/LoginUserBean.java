@@ -29,7 +29,7 @@ public class LoginUserBean {
         return saveUserBean.exec(requestUserInput);
     }
 
-    // 로그인
+    // 카카오 로그인
     public long exec(KakaoProfile kakaoProfile){
 
         // 같은 아이디가 존재하면 해당되는 아이디의 고유 값 반환

@@ -2,7 +2,6 @@ package com.riding.todoback.bean.Small;
 
 import com.riding.todoback.model.DTO.KakaoProfile;
 import com.riding.todoback.model.DTO.RequestUserInput;
-import com.riding.todoback.model.entity.TodoEntity;
 import com.riding.todoback.model.entity.UserEntity;
 import com.riding.todoback.repository.UserRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,6 @@
 package com.riding.todoback.bean;
 
 import com.riding.todoback.bean.Small.GenerateUniqueIdBean;
-import com.riding.todoback.bean.Small.GetUserDAOBean;
 import com.riding.todoback.bean.Small.NewObjectDAOBean;
 import com.riding.todoback.bean.Small.SaveDAOBean;
 import com.riding.todoback.model.DTO.KakaoProfile;

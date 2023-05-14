@@ -1,6 +1,5 @@
 package com.riding.todoback.bean.Small;
 
-import com.riding.todoback.model.DTO.OAuthToken;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
