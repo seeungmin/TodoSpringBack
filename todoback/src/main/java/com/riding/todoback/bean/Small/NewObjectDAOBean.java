@@ -1,9 +1,6 @@
 package com.riding.todoback.bean.Small;
 
-import com.riding.todoback.model.DTO.RequestBoardInput;
-import com.riding.todoback.model.DTO.RequestDetailBoardInquire;
-import com.riding.todoback.model.DTO.RequestTodoInput;
-import com.riding.todoback.model.DTO.RequestUserInput;
+import com.riding.todoback.model.DTO.*;
 import com.riding.todoback.model.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -110,6 +107,22 @@ public class NewObjectDAOBean {
 
         // 메모장 데이터 저장
         return new UserEntity(id, userId, email, nickName);
+    }
+
+    // 유저 객체 생성
+    public UserEntity exec(Long id, KakaoProfile kakaoProfile) {
+
+        // 아이디
+        Long userId = kakaoProfile.getId();
+
+        // 이메일
+        String email = kakaoProfile.kakao_account.getEmail();
+
+        // 닉네임
+        String nickName = kakaoProfile.kakao_account.profile.getNickname();
+
+        // 메모장 데이터 저장
+        return new UserEntity(id, userId.toString(), email, nickName);
     }
 
 }
