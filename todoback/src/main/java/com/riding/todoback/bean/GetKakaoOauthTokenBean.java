@@ -40,7 +40,7 @@ public class GetKakaoOauthTokenBean {
         // 헤더와 바디 합치기
         HttpEntity<MultiValueMap<String, String>> kakaoTokenRequest = newHttpDAOBean.exec(params, httpHeaders);
 
-        // 토큰 정보 반환
+        // 토큰 정보 가져오기
         ResponseEntity<String> response = newKakaoOauthTokenDAOBean.exec(kakaoTokenRequest);
 
         // 매핑 후 Token 반환

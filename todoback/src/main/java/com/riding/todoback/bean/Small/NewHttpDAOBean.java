@@ -13,4 +13,10 @@ public class NewHttpDAOBean {
         HttpEntity<MultiValueMap<String, String>> kakaoTokenRequest = new HttpEntity<>(params, httpHeaders);
         return kakaoTokenRequest;
     }
+
+    // Kakao profile 정보 받기 위한 HttpEntity 생성
+    public HttpEntity<MultiValueMap<String, String>> exec(HttpHeaders httpHeaders){
+        HttpEntity<MultiValueMap<String, String>> kakaoProfileRequest = new HttpEntity<>(httpHeaders);
+        return kakaoProfileRequest;
+    }
 }
