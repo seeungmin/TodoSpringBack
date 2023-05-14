@@ -1,20 +1,14 @@
 package com.riding.todoback.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.riding.todoback.model.DTO.KakaoProfile;
 import com.riding.todoback.model.DTO.OAuthToken;
-import com.riding.todoback.model.DTO.RequestTodoInput;
 import com.riding.todoback.model.DTO.RequestUserInput;
-import com.riding.todoback.model.entity.UserEntity;
 import com.riding.todoback.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,6 +28,7 @@ public class UserController {
     @PostMapping("login")
     @ResponseBody
     public ResponseEntity<Map<String, Object>> userLogin(@RequestBody RequestUserInput requestUserInput){
+        // 로그인 아이디 받기
         Long id = userService.loginUserEntity(requestUserInput);
 
         // HTTP 상태 반환
@@ -48,7 +43,7 @@ public class UserController {
 
     }
 
-
+    // 카카오 로그인
     @GetMapping("auth/kakao/callback")
     @ResponseBody
     public ResponseEntity<Map<String, Object>> kakaoCallBack(String code) throws JsonProcessingException {
