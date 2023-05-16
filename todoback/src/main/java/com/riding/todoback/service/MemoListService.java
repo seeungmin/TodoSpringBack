@@ -32,8 +32,8 @@ public class MemoListService {
     }
 
     // 메모장 preview 조회
-    public List<RequestPreviewCashBoardAll> allCashBoardEntity(){
-       return showPreviewCashBoardBean.exec();
+    public List<RequestPreviewCashBoardAll> allCashBoardEntity(String userId){
+       return showPreviewCashBoardBean.exec(userId);
     }
 
     // 메모장 detail 조회

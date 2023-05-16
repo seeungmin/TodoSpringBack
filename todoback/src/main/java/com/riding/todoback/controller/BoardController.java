@@ -21,10 +21,10 @@ public class BoardController {
     }
 
     // 전채 메모 preview 조회
-    @GetMapping("previewCashBoard")
+    @GetMapping("previewCashBoard/{userId}")
     @ResponseBody
-    public List<RequestPreviewCashBoardAll> allPreviewCashBoard(){
-        return memoListService.allCashBoardEntity();
+    public List<RequestPreviewCashBoardAll> allPreviewCashBoard(@PathVariable String userId){
+        return memoListService.allCashBoardEntity(userId);
     }
 
 

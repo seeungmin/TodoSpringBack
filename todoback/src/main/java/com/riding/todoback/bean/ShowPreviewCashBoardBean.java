@@ -21,9 +21,9 @@ public class ShowPreviewCashBoardBean {
         this.saveCashBoardDTOsBean = saveCashBoardDTOsBean;
     }
 
-    public List<RequestPreviewCashBoardAll> exec(){
+    public List<RequestPreviewCashBoardAll> exec(String userId){
         // 캐시메모 객체 전부 받아오기
-        List<CashBoardEntity> cashBoardEntities = getCahBoardDAOsBean.exec();
+        List<CashBoardEntity> cashBoardEntities = getCahBoardDAOsBean.exec(userId);
 
         // 캐시메모 객체 전부 DTO 객체에 저장 및 반환
         return saveCashBoardDTOsBean.exec(cashBoardEntities);

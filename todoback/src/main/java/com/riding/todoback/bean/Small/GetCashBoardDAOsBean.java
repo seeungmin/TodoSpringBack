@@ -18,8 +18,8 @@ public class GetCashBoardDAOsBean {
         this.cashBoardRepositoryJPA = cashBoardRepositoryJPA;
     }
 
-    public List<CashBoardEntity> exec(){
+    public List<CashBoardEntity> exec(String userId){
         // 모든 캐시메모 데이터 객체 받기
-        return new ArrayList<>(cashBoardRepositoryJPA.findByUserId("1"));
+        return new ArrayList<>(cashBoardRepositoryJPA.findByUserId(userId));
     }
 }
