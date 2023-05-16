@@ -56,8 +56,8 @@ public class TodoListService {
     }
 
     // 할 일 전체 조회
-    public List<RequestPreviewTodoAll> showTodoAllEntity(){
-        return showTodoBean.exec();
+    public List<RequestPreviewTodoAll> showTodoAllEntity(String userId){
+        return showTodoBean.exec(userId);
     }
 
     // 다 한 일 전체 조회

@@ -119,10 +119,10 @@ public class TodoListController {
 
 
     // 할 일 조회
-    @GetMapping("previewTodo")
+    @GetMapping("previewTodo/{userId}")
     @ResponseBody
-    public List<RequestPreviewTodoAll> allPreviewTodo(){
-        return todoListService.showTodoAllEntity();
+    public List<RequestPreviewTodoAll> allPreviewTodo(@PathVariable String userId){
+        return todoListService.showTodoAllEntity(userId);
     }
 
     // 다 한 일 조회

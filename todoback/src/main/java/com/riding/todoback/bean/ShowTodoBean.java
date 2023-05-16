@@ -22,9 +22,9 @@ public class ShowTodoBean {
     }
 
 
-    public List<RequestPreviewTodoAll> exec(){
+    public List<RequestPreviewTodoAll> exec(String userId){
         // 할 일 객체 전부 가져오기
-        List<TodoEntity> todoEntities = getTodoDAOsBean.exec();
+        List<TodoEntity> todoEntities = getTodoDAOsBean.exec(userId);
 
         // 할 일 DTO에 저장 후 반환
         return saveTodoDTOsBean.exec(todoEntities);
