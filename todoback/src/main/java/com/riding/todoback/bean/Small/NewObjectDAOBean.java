@@ -22,12 +22,15 @@ public class NewObjectDAOBean {
         // 내용 받기
         String input = requestTodoInput.getContent();
 
+        // 아이디 받기
+        String userId= requestTodoInput.getUserId();
+
         // 시간 생성
         LocalDateTime uTime = LocalDateTime.now();
         LocalDateTime mTime = LocalDateTime.now();
 
         // 데이터 저장
-        return new TodoEntity(id, "1", input, uTime,mTime);
+        return new TodoEntity(id, userId, input, uTime,mTime);
     }
 
     // 다 한 일 객체 생성
