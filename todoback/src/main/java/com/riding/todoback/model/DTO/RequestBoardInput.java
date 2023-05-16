@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class RequestBoardInput {
+    String userId;
     String title;
     String content;
 }

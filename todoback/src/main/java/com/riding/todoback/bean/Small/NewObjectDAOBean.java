@@ -50,6 +50,9 @@ public class NewObjectDAOBean {
     // 메모 객체 생성
     public BoardEntity exec(Long id, RequestBoardInput requestBoardInput) {
 
+        // 유저 아이디
+        String userId = requestBoardInput.getUserId();
+
         // 제목
         String title = requestBoardInput.getTitle();
 
@@ -61,11 +64,15 @@ public class NewObjectDAOBean {
         LocalDateTime mTime = LocalDateTime.now();
 
         // 메모장 데이터 저장
-        return new BoardEntity(id, "1", title, content, uTime, mTime);
+        return new BoardEntity(id, userId, title, content, uTime, mTime);
     }
 
     // 캐시 메모 객체 생성
     public CashBoardEntity exec(Long id, BoardEntity boardEntity){
+
+        // 유저 아이디
+        String userId = boardEntity.getUserId();
+
         // 제목
         String title = boardEntity.getTitle();
 
@@ -78,7 +85,7 @@ public class NewObjectDAOBean {
 
 
         // 스토리보드 데이터 저장
-        return new CashBoardEntity(id, "1", title, input, uTime, mTime);
+        return new CashBoardEntity(id, userId, title, input, uTime, mTime);
     }
 
     // 조회한 메모 객체 DTO 생성
