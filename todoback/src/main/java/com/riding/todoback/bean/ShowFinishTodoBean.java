@@ -23,9 +23,9 @@ public class ShowFinishTodoBean {
 
 
     // 다 한일 모든 객체 DTO로 반환
-    public List<RequestPreviewFinishTodoAll> exec(){
+    public List<RequestPreviewFinishTodoAll> exec(String userId){
         // 다 한 일 전부 찾기
-        List<FinishedTodoEntity> finishedTodoEntities = getFinishTodoDAOsBean.exec();
+        List<FinishedTodoEntity> finishedTodoEntities = getFinishTodoDAOsBean.exec(userId);
 
         // 다 한 일 전부를 DTO에 저장 및 반환
         return saveFinishTodoDTOsBean.exec(finishedTodoEntities);
