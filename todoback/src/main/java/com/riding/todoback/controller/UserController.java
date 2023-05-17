@@ -8,8 +8,13 @@ import com.riding.todoback.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
+import javax.servlet.http.HttpServletRequest;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,7 +55,7 @@ public class UserController {
 
         // 카카오 로그인 OAuth Token 받기
         OAuthToken oAuthToken = userService.GetKakaoOauthToken(code);
-
+        System.out.println("oAuthToken = " + oAuthToken);
         // 카카오 프로필 정보 받기
         KakaoProfile kakaoProfile = userService.GetKakaoProfile(oAuthToken);
 
@@ -68,4 +73,19 @@ public class UserController {
         return ResponseEntity.status(httpStatus).body(requestMap);
 
     }
+
+    @RequestMapping("loginButton")
+    @ResponseBody
+    public ResponseEntity<String> kakaoLoginButton(){
+
+        String apiUrl = "https://kauth.kakao.com/oauth/authorize?client_id=775bf4e000ccfe5e6184c3cfbaed0e77&redirect_uri=http://localhost:8000/auth/kakao/callback&response_type=code";
+
+        // RestTemplate을 사용하여 GET 요청을 보냄
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<String> response = restTemplate.getForEntity(apiUrl, String.class);
+
+        // API 호출 결과 반환
+        return response;
+    }
+
 }
