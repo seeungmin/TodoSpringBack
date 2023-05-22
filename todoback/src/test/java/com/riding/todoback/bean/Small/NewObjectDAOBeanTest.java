@@ -3,6 +3,7 @@ package com.riding.todoback.bean.Small;
 import com.riding.todoback.model.DTO.RequestBoardInput;
 import com.riding.todoback.model.DTO.RequestTodoInput;
 import com.riding.todoback.model.entity.BoardEntity;
+import com.riding.todoback.model.entity.CashBoardEntity;
 import com.riding.todoback.model.entity.FinishedTodoEntity;
 import com.riding.todoback.model.entity.TodoEntity;
 import org.assertj.core.api.Assertions;
@@ -74,6 +75,20 @@ class NewObjectDAOBeanTest {
 
     @Test
     void save_cash_board() {
+        Long id = 1L;
+        BoardEntity boardEntity = new BoardEntity();
+        boardEntity.setUserId("1");
+        boardEntity.setTitle("테스트 제목");
+        boardEntity.setContent("테스트내용123451111");
+        boardEntity.setUploadTime(LocalDateTime.now());
+        boardEntity.setModifyTime(LocalDateTime.now());
+
+        CashBoardEntity cashBoardEntity = newObjectDAOBean.exec(id, boardEntity);
+
+        assertThat(cashBoardEntity.getId()).isEqualTo(1L);
+        assertThat(cashBoardEntity.getUserId()).isEqualTo("1");
+        assertThat(cashBoardEntity.getTitle()).isEqualTo("테스트 제목");
+        assertThat(cashBoardEntity.getCashData()).isEqualTo("테스트내용12345");
     }
 
     @Test
