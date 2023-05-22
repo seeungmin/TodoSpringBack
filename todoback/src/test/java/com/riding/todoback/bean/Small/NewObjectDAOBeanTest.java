@@ -1,12 +1,17 @@
 package com.riding.todoback.bean.Small;
 
+import com.riding.todoback.model.DTO.RequestBoardInput;
 import com.riding.todoback.model.DTO.RequestTodoInput;
+import com.riding.todoback.model.entity.BoardEntity;
+import com.riding.todoback.model.entity.FinishedTodoEntity;
 import com.riding.todoback.model.entity.TodoEntity;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -35,6 +40,19 @@ class NewObjectDAOBeanTest {
 
     @Test
     void save_finish_todo() {
+
+        TodoEntity todoEntity = new TodoEntity();
+        todoEntity.setId(1L);
+        todoEntity.setUserId("1");
+        todoEntity.setContent("테스트 내용");
+        todoEntity.setUploadTime(LocalDateTime.now());
+        todoEntity.setModifyTime(LocalDateTime.now());
+
+        FinishedTodoEntity finishedTodoEntity = newObjectDAOBean.exec(todoEntity);
+
+        assertThat(finishedTodoEntity.getId()).isEqualTo(1L);
+        assertThat(finishedTodoEntity.getUserId()).isEqualTo("1");
+        assertThat(finishedTodoEntity.getContent()).isEqualTo("테스트 내용");
     }
 
     @Test
