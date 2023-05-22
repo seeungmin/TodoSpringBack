@@ -57,6 +57,19 @@ class NewObjectDAOBeanTest {
 
     @Test
     void save_board() {
+
+        long id = 1L;
+        RequestBoardInput requestBoardInput = new RequestBoardInput();
+        requestBoardInput.setUserId("1");
+        requestBoardInput.setTitle("테스트 제목");
+        requestBoardInput.setContent("테스트 내용");
+
+        BoardEntity boardEntity = newObjectDAOBean.exec(id, requestBoardInput);
+
+        assertThat(boardEntity.getId()).isEqualTo(1L);
+        assertThat(boardEntity.getUserId()).isEqualTo("1");
+        assertThat(boardEntity.getTitle()).isEqualTo("테스트 제목");
+        assertThat(boardEntity.getContent()).isEqualTo("테스트 내용");
     }
 
     @Test
