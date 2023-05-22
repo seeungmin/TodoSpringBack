@@ -1,6 +1,7 @@
 package com.riding.todoback.bean.Small;
 
 import com.riding.todoback.model.DTO.RequestBoardInput;
+import com.riding.todoback.model.DTO.RequestDetailBoardInquire;
 import com.riding.todoback.model.DTO.RequestTodoInput;
 import com.riding.todoback.model.entity.BoardEntity;
 import com.riding.todoback.model.entity.CashBoardEntity;
@@ -92,7 +93,22 @@ class NewObjectDAOBeanTest {
     }
 
     @Test
-    void testExec3() {
+    void new_board_one() {
+
+        BoardEntity boardEntity = new BoardEntity();
+        boardEntity.setId(1L);
+        boardEntity.setUserId("1");
+        boardEntity.setTitle("테스트 제목");
+        boardEntity.setContent("테스트내용123451111");
+        boardEntity.setUploadTime(LocalDateTime.now());
+        boardEntity.setModifyTime(LocalDateTime.now());
+
+        RequestDetailBoardInquire requestDetailBoardInquire = newObjectDAOBean.exec(boardEntity);
+
+        assertThat(requestDetailBoardInquire.getId()).isEqualTo(1L);
+        assertThat(requestDetailBoardInquire.getUserId()).isEqualTo("1");
+        assertThat(requestDetailBoardInquire.getTitle()).isEqualTo("테스트 제목");
+        assertThat(requestDetailBoardInquire.getContent()).isEqualTo("테스트내용123451111");
     }
 
     @Test
