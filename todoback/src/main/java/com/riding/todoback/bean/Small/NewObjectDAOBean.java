@@ -109,14 +109,15 @@ public class NewObjectDAOBean {
         // 아이디
         String userId = requestUserInput.getUserId();
 
-        // 이메일
-        String email = requestUserInput.getEmail();
-
         // 닉네임
         String nickName = requestUserInput.getNickName();
 
+        // 이메일
+        String email = requestUserInput.getEmail();
+
+
         // 메모장 데이터 저장
-        return new UserEntity(id, userId, email, nickName);
+        return new UserEntity(id, userId, nickName, email);
     }
 
     // 유저 객체 생성
