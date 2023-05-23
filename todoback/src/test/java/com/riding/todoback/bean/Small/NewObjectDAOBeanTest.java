@@ -1,12 +1,7 @@
 package com.riding.todoback.bean.Small;
 
-import com.riding.todoback.model.DTO.RequestBoardInput;
-import com.riding.todoback.model.DTO.RequestDetailBoardInquire;
-import com.riding.todoback.model.DTO.RequestTodoInput;
-import com.riding.todoback.model.entity.BoardEntity;
-import com.riding.todoback.model.entity.CashBoardEntity;
-import com.riding.todoback.model.entity.FinishedTodoEntity;
-import com.riding.todoback.model.entity.TodoEntity;
+import com.riding.todoback.model.DTO.*;
+import com.riding.todoback.model.entity.*;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +20,7 @@ class NewObjectDAOBeanTest {
     @Autowired NewObjectDAOBean newObjectDAOBean;
 
     @Test
-    void save_todo() {
+    void save_todo_Object_DAO() {
 
         long id = 1L;
         RequestTodoInput requestTodoInput = new RequestTodoInput();
@@ -41,7 +36,7 @@ class NewObjectDAOBeanTest {
     }
 
     @Test
-    void save_finish_todo() {
+    void save_finish_todo_Object_DAO() {
 
         TodoEntity todoEntity = new TodoEntity();
         todoEntity.setId(1L);
@@ -58,7 +53,7 @@ class NewObjectDAOBeanTest {
     }
 
     @Test
-    void save_board() {
+    void save_board_Object_DAO() {
 
         long id = 1L;
         RequestBoardInput requestBoardInput = new RequestBoardInput();
@@ -75,7 +70,7 @@ class NewObjectDAOBeanTest {
     }
 
     @Test
-    void save_cash_board() {
+    void save_cash_board_Object_DAO() {
         Long id = 1L;
         BoardEntity boardEntity = new BoardEntity();
         boardEntity.setUserId("1");
@@ -93,7 +88,7 @@ class NewObjectDAOBeanTest {
     }
 
     @Test
-    void new_board_one() {
+    void new_board_Object_DAO() {
 
         BoardEntity boardEntity = new BoardEntity();
         boardEntity.setId(1L);
@@ -112,10 +107,41 @@ class NewObjectDAOBeanTest {
     }
 
     @Test
-    void testExec4() {
+    void save_user_Object_DAO() {
+        Long id = 1L;
+        RequestUserInput requestUserInput = new RequestUserInput();
+        requestUserInput.setUserId("1");
+        requestUserInput.setNickName("이승민");
+        requestUserInput.setEmail("hi@tukorea.com");
+
+        UserEntity userEntity = newObjectDAOBean.exec(id, requestUserInput);
+
+        assertThat(userEntity.getId()).isEqualTo(1L);
+        assertThat(userEntity.getUserId()).isEqualTo("1");
+        assertThat(userEntity.getEmail()).isEqualTo("hi@tukorea.com");
+        assertThat(userEntity.getNickName()).isEqualTo("이승민");
     }
 
     @Test
-    void testExec5() {
+    void save_user_kakao_Object_DAO() {
+
+        Long id = 1L;
+
+        KakaoProfile kakaoProfile = new KakaoProfile();
+        KakaoProfile.KakaoAccount kakaoAccount = new KakaoProfile.KakaoAccount();
+        KakaoProfile.KakaoAccount.Profile profile = new KakaoProfile.KakaoAccount.Profile();
+
+        kakaoProfile.setKakao_account(kakaoAccount);
+        kakaoProfile.kakao_account.setProfile(profile);
+        kakaoProfile.setId(2L);
+        kakaoAccount.setEmail("hi@tukorea.com");
+        profile.setNickname("이승민");
+
+        UserEntity userEntity = newObjectDAOBean.exec(id, kakaoProfile);
+
+        assertThat(userEntity.getId()).isEqualTo(1L);
+        assertThat(userEntity.getUserId()).isEqualTo("2");
+        assertThat(userEntity.getEmail()).isEqualTo("hi@tukorea.com");
+        assertThat(userEntity.getNickName()).isEqualTo("이승민");
     }
 }

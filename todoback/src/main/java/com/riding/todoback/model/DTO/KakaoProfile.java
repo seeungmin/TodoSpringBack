@@ -14,14 +14,14 @@ public class KakaoProfile {
 
     @JsonIgnoreProperties(ignoreUnknown=true)
     @Data
-    public class KakaoAccount {
+    public static class KakaoAccount {
 
         public Profile profile;
         public String email;
 
         @JsonIgnoreProperties(ignoreUnknown=true)
         @Data
-        public class Profile {
+        public static class Profile {
             public String nickname;
         }
     }

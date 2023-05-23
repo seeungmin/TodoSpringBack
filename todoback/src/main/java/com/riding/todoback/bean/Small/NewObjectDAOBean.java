@@ -126,14 +126,14 @@ public class NewObjectDAOBean {
         // 아이디
         Long userId = kakaoProfile.getId();
 
-        // 이메일
-        String email = kakaoProfile.kakao_account.getEmail();
-
         // 닉네임
         String nickName = kakaoProfile.kakao_account.profile.getNickname();
 
+        // 이메일
+        String email = kakaoProfile.kakao_account.getEmail();
+
         // 메모장 데이터 저장
-        return new UserEntity(id, userId.toString(), email, nickName);
+        return new UserEntity(id, userId.toString(), nickName, email);
     }
 
 }
