@@ -25,7 +25,6 @@ public class MemoListController {
 
     // 메모장 데이터 입력 저장 및 스토리보드 데이터 캐싱 후 저장
     @PostMapping("board")
-    @ResponseBody
     public ResponseEntity<Map<String, Object>> boardInput(@RequestBody RequestBoardInput requestBoardInput){
         Long id = memoListService.saveBoardEntity(requestBoardInput);
 
@@ -40,7 +39,8 @@ public class MemoListController {
         return ResponseEntity.status(httpStatus).body(requestMap);
     }
 
-    @PostMapping("modifyBoard")
+    // 메모장 데이터 수정 및 스토리보드 데이터 캐싱 후 저장
+    @PutMapping("board")
     @ResponseBody
     public ResponseEntity<Map<String, Object>> boardModify(@RequestBody RequestBoardModify requestBoardModify){
         Long id = memoListService.modifyBoardEntity(requestBoardModify);
