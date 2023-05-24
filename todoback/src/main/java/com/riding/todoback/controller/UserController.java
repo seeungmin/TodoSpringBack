@@ -11,9 +11,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -77,6 +79,16 @@ public class UserController {
     @RequestMapping("loginButton")
     @ResponseBody
     public ResponseEntity<String> kakaoLoginButton(){
+
+        URI uri = UriComponentsBuilder
+                .fromUriString("https://kauth.kakao.com")
+                .path("/oauth/authorize")
+                .queryParam("client_id", "775bf4e000ccfe5e6184c3cfbaed0e77")
+                .queryParam("redirect_uri","http://localhost:8000/auth/kakao/callback")
+                .queryParam("response_type", "code")
+                .encode()
+                .build()
+                .toUri();
 
         String apiUrl = "https://kauth.kakao.com/oauth/authorize?client_id=775bf4e000ccfe5e6184c3cfbaed0e77&redirect_uri=http://localhost:8000/auth/kakao/callback&response_type=code";
 
