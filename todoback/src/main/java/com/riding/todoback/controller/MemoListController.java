@@ -56,7 +56,8 @@ public class MemoListController {
         return ResponseEntity.status(httpStatus).body(requestMap);
     }
 
-    @PostMapping("boardDelete")
+    // 메모 삭제
+    @DeleteMapping("board")
     @ResponseBody
     public ResponseEntity<Map<String, Object>> todoDelete(@RequestBody RequestBoardDelete requestBoardDelete){
         Long id = memoListService.deleteBoardEntity(requestBoardDelete);
