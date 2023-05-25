@@ -29,9 +29,9 @@ public class BoardController {
 
 
     // 메모 detail 조회
-    @GetMapping("detailBoard")
+    @GetMapping("board/{userId}/{id}")
     @ResponseBody
-    public RequestDetailBoardInquire inquireDetailBoard(@RequestParam("id") long id){
+    public RequestDetailBoardInquire inquireDetailBoard(@PathVariable String userId, @PathVariable long id){
         return memoListService.inquireBoardEntity(id);
     }
 }
