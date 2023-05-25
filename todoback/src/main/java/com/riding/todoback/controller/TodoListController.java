@@ -61,7 +61,7 @@ public class TodoListController {
 
 
     // 할 일 데이터 수정
-    @PostMapping("modifyTodo")
+    @PutMapping("todo")
     @ResponseBody
     public ResponseEntity<Map<String, Object>> todoModify(@RequestBody RequestTodoModify requestTodoModify){
         Long id = todoListService.modifyTodoEntity(requestTodoModify);
