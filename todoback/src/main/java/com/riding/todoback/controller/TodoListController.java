@@ -82,7 +82,7 @@ public class TodoListController {
 
     // 휴지통 기능이 있어도 괜찮을거 같은데?
     // 할 일 삭제
-    @PostMapping("todoDelete")
+    @DeleteMapping("todo")
     @ResponseBody
     public ResponseEntity<Map<String, Object>> todoDelete(@RequestBody RequestTodoDelete requestTodoDelete){
         Long id = todoListService.deleteTodoEntity(requestTodoDelete);
