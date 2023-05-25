@@ -126,7 +126,7 @@ public class TodoListController {
     }
 
     // 다 한 일 조회
-    @GetMapping("previewFinishTodo/{userId}")
+    @GetMapping("finishTodo/list/{userId}")
     @ResponseBody
     public List<RequestPreviewFinishTodoAll> allPreviewFinishTodo(@PathVariable String userId){
         return todoListService.showFinishTodoAllEntity(userId);
