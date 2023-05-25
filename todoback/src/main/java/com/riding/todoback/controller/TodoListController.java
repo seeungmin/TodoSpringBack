@@ -100,7 +100,7 @@ public class TodoListController {
 
 
     // 다 한 일 삭제
-    @PostMapping("finishTodoDelete")
+    @DeleteMapping("finishTodo")
     @ResponseBody
     public ResponseEntity<Map<String, Object>> finishedTodoDelete(@RequestBody RequestFinishTodoDelete requestFinishTodoDelete){
         Long id = todoListService.deleteFinishedTodoEntity(requestFinishTodoDelete);
@@ -119,7 +119,7 @@ public class TodoListController {
 
 
     // 할 일 조회
-    @GetMapping("previewTodo/{userId}")
+    @GetMapping("todo/list/{userId}")
     @ResponseBody
     public List<RequestPreviewTodoAll> allPreviewTodo(@PathVariable String userId){
         return todoListService.showTodoAllEntity(userId);
