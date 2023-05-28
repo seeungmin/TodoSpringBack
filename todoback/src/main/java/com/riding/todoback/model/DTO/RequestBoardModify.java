@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 @Data
 public class RequestBoardModify {
     long id;
+    String userId;
     String title;
     String content;
     LocalDateTime modifyTime;

@@ -5,4 +5,5 @@ import lombok.Data;
 @Data
 public class RequestBoardDelete {
     long id;
+    String userId;
 }
