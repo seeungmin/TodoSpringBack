@@ -20,6 +20,16 @@ public class TodoListController {
     @Autowired
     TodoListService todoListService;
 
+    // 할 일 조회
+    @GetMapping("todo/list/{userId}")
+    @ResponseBody
+    public List<RequestPreviewTodoAll> allPreviewTodo(@PathVariable String userId){
+        return todoListService.showTodoAllEntity(userId);
+    }
+
+
+
+
     // 할 일 입력 후 저장
     @PostMapping("todo")
     @ResponseBody
@@ -36,25 +46,6 @@ public class TodoListController {
 
         return ResponseEntity.status(httpStatus).body(requestMap);
 
-    }
-
-
-
-    // 다 한 일 입력 후 저장
-    @PostMapping("finishTodo")
-    @ResponseBody
-    public ResponseEntity<Map<String, Object>> finishedTodoInput(@RequestBody RequestFinishTodoInput requestFinishTodoInput){
-        Long id = todoListService.saveFinishedTodoEntity(requestFinishTodoInput);
-
-        // HTTP 상태 반환
-        HttpStatus httpStatus = (id != null) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
-
-        // 메시지와 id 값 json 데이터로 반환
-        Map<String, Object> requestMap = new HashMap<>();
-        requestMap.put("message", (id != null) ? "Create Success" : "Create Fail");
-        requestMap.put("id", id);
-
-        return ResponseEntity.status(httpStatus).body(requestMap);
     }
 
 
@@ -99,6 +90,38 @@ public class TodoListController {
     }
 
 
+
+
+    // 다 한 일 조회
+    @GetMapping("finishTodo/list/{userId}")
+    @ResponseBody
+    public List<RequestPreviewFinishTodoAll> allPreviewFinishTodo(@PathVariable String userId){
+        return todoListService.showFinishTodoAllEntity(userId);
+    }
+
+
+
+
+    // 다 한 일 입력 후 저장
+    @PostMapping("finishTodo")
+    @ResponseBody
+    public ResponseEntity<Map<String, Object>> finishedTodoInput(@RequestBody RequestFinishTodoInput requestFinishTodoInput){
+        Long id = todoListService.saveFinishedTodoEntity(requestFinishTodoInput);
+
+        // HTTP 상태 반환
+        HttpStatus httpStatus = (id != null) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
+
+        // 메시지와 id 값 json 데이터로 반환
+        Map<String, Object> requestMap = new HashMap<>();
+        requestMap.put("message", (id != null) ? "Create Success" : "Create Fail");
+        requestMap.put("id", id);
+
+        return ResponseEntity.status(httpStatus).body(requestMap);
+    }
+
+
+
+
     // 다 한 일 삭제
     @DeleteMapping("finishTodo")
     @ResponseBody
@@ -114,21 +137,5 @@ public class TodoListController {
         requestMap.put("id", id);
 
         return ResponseEntity.status(httpStatus).body(requestMap);
-
-    }
-
-
-    // 할 일 조회
-    @GetMapping("todo/list/{userId}")
-    @ResponseBody
-    public List<RequestPreviewTodoAll> allPreviewTodo(@PathVariable String userId){
-        return todoListService.showTodoAllEntity(userId);
-    }
-
-    // 다 한 일 조회
-    @GetMapping("finishTodo/list/{userId}")
-    @ResponseBody
-    public List<RequestPreviewFinishTodoAll> allPreviewFinishTodo(@PathVariable String userId){
-        return todoListService.showFinishTodoAllEntity(userId);
     }
 }

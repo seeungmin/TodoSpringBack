@@ -20,18 +20,20 @@ public class BoardController {
         this.memoListService = memoListService;
     }
 
-    // 전채 메모 preview 조회
-    @GetMapping("cashBoard/list/{userId}")
-    @ResponseBody
-    public List<RequestPreviewCashBoardAll> allPreviewCashBoard(@PathVariable String userId){
-        return memoListService.allCashBoardEntity(userId);
-    }
-
-
     // 메모 detail 조회
     @GetMapping("board/{userId}/{id}")
     @ResponseBody
     public RequestDetailBoardInquire inquireDetailBoard(@PathVariable String userId, @PathVariable long id){
         return memoListService.inquireBoardEntity(id);
+    }
+
+
+
+
+    // 전채 메모 preview 조회
+    @GetMapping("cashBoard/list/{userId}")
+    @ResponseBody
+    public List<RequestPreviewCashBoardAll> allPreviewCashBoard(@PathVariable String userId){
+        return memoListService.allCashBoardEntity(userId);
     }
 }
