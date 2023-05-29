@@ -1,5 +1,6 @@
 package com.riding.todoback.bean;
 
+import com.riding.todoback.bean.Small.CheckUserIdDAOBean;
 import com.riding.todoback.bean.Small.GetTodoDAOBean;
 import com.riding.todoback.bean.Small.ModifyObjectDAOBean;
 import com.riding.todoback.bean.Small.SaveDAOBean;
@@ -14,12 +15,14 @@ public class ModifyTodoBean {
     GetTodoDAOBean getTodoDAOBean;
     ModifyObjectDAOBean modifyObjectDAOBean;
     SaveDAOBean saveDAOBean;
+    CheckUserIdDAOBean checkUserIdDAOBean;
 
     @Autowired
-    public ModifyTodoBean(GetTodoDAOBean getTodoDAOBean, ModifyObjectDAOBean modifyObjectDAOBean, SaveDAOBean saveDAOBean) {
+    public ModifyTodoBean(GetTodoDAOBean getTodoDAOBean, ModifyObjectDAOBean modifyObjectDAOBean, SaveDAOBean saveDAOBean, CheckUserIdDAOBean checkUserIdDAOBean) {
         this.getTodoDAOBean = getTodoDAOBean;
         this.modifyObjectDAOBean = modifyObjectDAOBean;
         this.saveDAOBean = saveDAOBean;
+        this.checkUserIdDAOBean = checkUserIdDAOBean;
     }
 
     // 할 일 데이터 수정
@@ -29,6 +32,10 @@ public class ModifyTodoBean {
 
         // 아이디로 수정할 할 일 찾기
         TodoEntity todoEntity = getTodoDAOBean.exec(id);
+
+        // 수정할 할 일이 해당되는 아이디가 맞는지 확인
+        if(checkUserIdDAOBean.exec(todoEntity, requestTodoModify) == false)
+            return null;
 
         // 할 일 수정
         TodoEntity modifyTodoEntity = modifyObjectDAOBean.exec(todoEntity, requestTodoModify);

@@ -10,5 +10,4 @@ public class RequestBoardModify {
     String userId;
     String title;
     String content;
-    LocalDateTime modifyTime;
 }
