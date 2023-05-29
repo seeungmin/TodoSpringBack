@@ -24,7 +24,7 @@ public class BoardController {
     @GetMapping("board/{userId}/{id}")
     @ResponseBody
     public RequestDetailBoardInquire inquireDetailBoard(@PathVariable String userId, @PathVariable long id){
-        return memoListService.inquireBoardEntity(id);
+        return memoListService.inquireBoardEntity(id, userId);
     }
 
 

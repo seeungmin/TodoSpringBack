@@ -33,6 +33,14 @@ public class CheckUserIdDAOBean {
         return false;
     }
 
+    // 조회할 메모 판별
+    public boolean exec(BoardEntity boardEntity, String userId){
+
+        if(boardEntity.getUserId().equals(userId))
+            return true;
+        return false;
+    }
+
     // 수정할 메모 판별
     public boolean exec(BoardEntity boardEntity, RequestBoardModify requestBoardModify){
 
@@ -48,6 +56,7 @@ public class CheckUserIdDAOBean {
             return true;
         return false;
     }
+
 
 
 }

@@ -37,8 +37,8 @@ public class MemoListService {
     }
 
     // 메모장 detail 조회
-    public RequestDetailBoardInquire inquireBoardEntity(long id){
-        return inquireDetailBoardBean.exec(id);
+    public RequestDetailBoardInquire inquireBoardEntity(long id, String userId){
+        return inquireDetailBoardBean.exec(id, userId);
     }
 
 
