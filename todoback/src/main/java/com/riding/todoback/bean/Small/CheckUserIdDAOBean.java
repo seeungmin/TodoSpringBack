@@ -1,8 +1,7 @@
 package com.riding.todoback.bean.Small;
 
-import com.riding.todoback.model.DTO.RequestFinishTodoDelete;
-import com.riding.todoback.model.DTO.RequestTodoDelete;
-import com.riding.todoback.model.DTO.RequestTodoModify;
+import com.riding.todoback.model.DTO.*;
+import com.riding.todoback.model.entity.BoardEntity;
 import com.riding.todoback.model.entity.FinishedTodoEntity;
 import com.riding.todoback.model.entity.TodoEntity;
 import org.springframework.stereotype.Component;
@@ -33,5 +32,22 @@ public class CheckUserIdDAOBean {
             return true;
         return false;
     }
+
+    // 수정할 메모 판별
+    public boolean exec(BoardEntity boardEntity, RequestBoardModify requestBoardModify){
+
+        if(boardEntity.getUserId().equals(requestBoardModify.getUserId()))
+            return true;
+        return false;
+    }
+
+    // 삭제할 메모 판별
+    public boolean exec(BoardEntity boardEntity, RequestBoardDelete requestBoardDelete){
+
+        if(boardEntity.getUserId().equals(requestBoardDelete.getUserId()))
+            return true;
+        return false;
+    }
+
 
 }

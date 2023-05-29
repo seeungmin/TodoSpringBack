@@ -13,13 +13,15 @@ public class ModifyBoardBean {
     GetCashBoardDAOBean getCashBoardDAOBean;
     ModifyObjectDAOBean modifyObjectDAOBean;
     SaveDAOBean saveDAOBean;
+    CheckUserIdDAOBean checkUserIdDAOBean;
 
     @Autowired
-    public ModifyBoardBean(GetBoardDAOBean getBoardDAOBean, GetCashBoardDAOBean getCashBoardDAOBean, ModifyObjectDAOBean modifyObjectDAOBean, SaveDAOBean saveDAOBean) {
+    public ModifyBoardBean(GetBoardDAOBean getBoardDAOBean, GetCashBoardDAOBean getCashBoardDAOBean, ModifyObjectDAOBean modifyObjectDAOBean, SaveDAOBean saveDAOBean, CheckUserIdDAOBean checkUserIdDAOBean) {
         this.getBoardDAOBean = getBoardDAOBean;
         this.getCashBoardDAOBean = getCashBoardDAOBean;
         this.modifyObjectDAOBean = modifyObjectDAOBean;
         this.saveDAOBean = saveDAOBean;
+        this.checkUserIdDAOBean = checkUserIdDAOBean;
     }
 
     // 메모 수정
@@ -29,6 +31,10 @@ public class ModifyBoardBean {
 
         // 아이디로 수정할 메모 찾기
         BoardEntity boardEntity = getBoardDAOBean.exec(id);
+
+        // 수정할 할 일이 해당되는 아이디가 맞는지 확인
+        if(checkUserIdDAOBean.exec(boardEntity, requestBoardModify) == false)
+            return null;
 
         // 새로 받을 내용 작성
         BoardEntity modifyBoardEntity = modifyObjectDAOBean.exec(boardEntity, requestBoardModify);
