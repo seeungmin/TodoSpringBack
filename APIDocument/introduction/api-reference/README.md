@@ -12,13 +12,7 @@ Board 관련 API 요청.
 [board.md](board.md)
 {% endcontent-ref %}
 
-## Todo
 
-Todo 관련 API 요청.
-
-{% content-ref url="todo.md" %}
-[todo.md](todo.md)
-{% endcontent-ref %}
 
 ## Memo
 
@@ -26,4 +20,14 @@ Memo 관련 API 요청.
 
 {% content-ref url="memo.md" %}
 [memo.md](memo.md)
+{% endcontent-ref %}
+
+
+
+## Todo
+
+Todo 관련 API 요청.
+
+{% content-ref url="todo.md" %}
+[todo.md](todo.md)
 {% endcontent-ref %}

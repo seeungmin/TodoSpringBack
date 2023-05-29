@@ -19,7 +19,7 @@
 ```
 {
     "id": 유니크한 아이디,
-    "member_Id": 회원 아이디,
+    "userId": 회원 아이디,
     "title": 제목,
     "cashData": 메모 내용,
     "uploadTime": 메모를 저장한 시간
@@ -48,7 +48,7 @@
 ```
 {
     "id": 유니크한 아이디,
-    "member_Id": 회원 아이디,
+    "userId": 회원 아이디,
     "title": 제목,
     "cashData": 메모 내용,
     "uploadTime": 메모를 저장한 시간
