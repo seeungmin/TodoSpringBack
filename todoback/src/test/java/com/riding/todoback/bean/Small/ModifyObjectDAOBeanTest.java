@@ -55,7 +55,6 @@ class ModifyObjectDAOBeanTest {
         requestBoardModify.setId(1L);
         requestBoardModify.setTitle("테스트테스트");
         requestBoardModify.setContent("이 내용은 수정된 내용 입니다.");
-        requestBoardModify.setModifyTime(LocalDateTime.now());
         modifyObjectDAOBean.exec(boardEntity, requestBoardModify);
 
         assertThat(boardEntity.getContent()).isEqualTo(requestBoardModify.getContent());

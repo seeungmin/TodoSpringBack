@@ -25,6 +25,14 @@ public class CheckUserIdDAOBean {
         return false;
     }
 
+    // 입력할 다 한일 판별
+    public boolean exec(TodoEntity todoEntity, RequestFinishTodoInput requestFinishTodoInput){
+
+        if(todoEntity.getUserId().equals(requestFinishTodoInput.getUserId()))
+            return true;
+        return false;
+    }
+
     // 삭제할 다 한일 판별
     public boolean exec(FinishedTodoEntity finishedTodoEntity, RequestFinishTodoDelete requestFinishTodoDelete){
 

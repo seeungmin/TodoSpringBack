@@ -14,13 +14,15 @@ public class SaveFinishedTodoBean {
     NewObjectDAOBean newObjectDAOBean;
     SaveDAOBean saveDAOBean;
     DeleteDAOBean deleteDAOBean;
+    CheckUserIdDAOBean checkUserIdDAOBean;
 
     @Autowired
-    public SaveFinishedTodoBean(GetTodoDAOBean getTodoDAOBean, NewObjectDAOBean newObjectDAOBean, SaveDAOBean saveDAOBean, DeleteDAOBean deleteDAOBean) {
+    public SaveFinishedTodoBean(GetTodoDAOBean getTodoDAOBean, NewObjectDAOBean newObjectDAOBean, SaveDAOBean saveDAOBean, DeleteDAOBean deleteDAOBean, CheckUserIdDAOBean checkUserIdDAOBean) {
         this.getTodoDAOBean = getTodoDAOBean;
         this.newObjectDAOBean = newObjectDAOBean;
         this.saveDAOBean = saveDAOBean;
         this.deleteDAOBean = deleteDAOBean;
+        this.checkUserIdDAOBean = checkUserIdDAOBean;
     }
 
     // 다 한일 데이터 저장
@@ -31,6 +33,10 @@ public class SaveFinishedTodoBean {
 
         // 아이디로 할 일 객체 받아오기
         TodoEntity todoEntity = getTodoDAOBean.exec(id);
+
+        // 수정할 할 일이 해당되는 아이디가 맞는지 확인
+        if(checkUserIdDAOBean.exec(todoEntity, requestFinishTodoInput) == false)
+            return null;
 
         // 다 한 일 저장할 객체 생성
         FinishedTodoEntity finishedTodoEntity = newObjectDAOBean.exec(todoEntity);
