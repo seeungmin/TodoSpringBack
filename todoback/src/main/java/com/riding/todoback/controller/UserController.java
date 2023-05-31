@@ -76,7 +76,7 @@ public class UserController {
 
     }
 
-    @RequestMapping("loginButton")
+/*    @RequestMapping("loginButton")
     @ResponseBody
     public ResponseEntity<String> kakaoLoginButton(){
 
@@ -98,6 +98,6 @@ public class UserController {
 
         // API 호출 결과 반환
         return response;
-    }
+    }*/
 
 }

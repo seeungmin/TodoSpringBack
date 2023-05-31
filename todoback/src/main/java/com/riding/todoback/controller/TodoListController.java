@@ -21,7 +21,7 @@ public class TodoListController {
     TodoListService todoListService;
 
     // 할 일 조회
-    @GetMapping("todo/list/{userId}")
+    @GetMapping("todos/user/{userId}")
     @ResponseBody
     public List<RequestPreviewTodoAll> allPreviewTodo(@PathVariable String userId){
         return todoListService.showTodoAllEntity(userId);
@@ -93,7 +93,7 @@ public class TodoListController {
 
 
     // 다 한 일 조회
-    @GetMapping("finishTodo/list/{userId}")
+    @GetMapping("finishTodos/user/{userId}")
     @ResponseBody
     public List<RequestPreviewFinishTodoAll> allPreviewFinishTodo(@PathVariable String userId){
         return todoListService.showFinishTodoAllEntity(userId);

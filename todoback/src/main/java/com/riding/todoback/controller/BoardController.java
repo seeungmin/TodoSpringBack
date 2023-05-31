@@ -21,7 +21,7 @@ public class BoardController {
     }
 
     // 메모 detail 조회
-    @GetMapping("board/{userId}/{id}")
+    @GetMapping("board/{id}/user/{userId}")
     @ResponseBody
     public RequestDetailBoardInquire inquireDetailBoard(@PathVariable String userId, @PathVariable long id){
         return memoListService.inquireBoardEntity(id, userId);
@@ -31,7 +31,7 @@ public class BoardController {
 
 
     // 전채 메모 preview 조회
-    @GetMapping("cashBoard/list/{userId}")
+    @GetMapping("cashBoards/user/{userId}")
     @ResponseBody
     public List<RequestPreviewCashBoardAll> allPreviewCashBoard(@PathVariable String userId){
         return memoListService.allCashBoardEntity(userId);
