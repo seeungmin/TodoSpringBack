@@ -32,23 +32,21 @@ public class UserService {
         return loginUserBean.exec(requestUserInput);
     }
 
+
     // 카카오 로그인
     public Long loginUserEntity(KakaoProfile kakaoProfile){
         return loginUserBean.exec(kakaoProfile);
     }
 
+
     // 카카오 로그인 OAuth Token 받기
-    public OAuthToken GetKakaoOauthToken(String code) throws JsonProcessingException {
+    public OAuthToken getKakaoOauthToken(String code) throws JsonProcessingException {
         return getKakaoOauthTokenBean.exec(code);
     }
 
+
     // 카카오 프로필 정보 받기
-    public KakaoProfile GetKakaoProfile(OAuthToken oAuthToken) throws JsonProcessingException{
+    public KakaoProfile getKakaoProfile(OAuthToken oAuthToken) throws JsonProcessingException{
         return getKakaoProfileBean.exec(oAuthToken);
     }
-
-    /*// 카카오 로그아웃
-    public void sss(OAuthToken oAuthToken) throws JsonProcessingException {
-       logoutUserBean.exec(oAuthToken);
-    }*/
 }
