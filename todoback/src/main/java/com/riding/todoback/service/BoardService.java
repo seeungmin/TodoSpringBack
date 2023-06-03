@@ -5,53 +5,44 @@ import com.riding.todoback.model.DTO.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
-public class MemoListService {
+public class BoardService {
 
     SaveBoardBean saveBoardBean;
     InquireDetailBoardBean inquireDetailBoardBean;
-    ShowPreviewCashBoardBean showPreviewCashBoardBean;
     ModifyBoardBean modifyBoardBean;
     DeleteBoardBean deleteBoardBean;
 
     @Autowired
-    public MemoListService(SaveBoardBean saveBoardBean, InquireDetailBoardBean inquireDetailBoardBean, ShowPreviewCashBoardBean showPreviewCashBoardBean, ModifyBoardBean modifyBoardBean, DeleteBoardBean deleteBoardBean) {
+    public BoardService(SaveBoardBean saveBoardBean, InquireDetailBoardBean inquireDetailBoardBean, ModifyBoardBean modifyBoardBean, DeleteBoardBean deleteBoardBean) {
         this.saveBoardBean = saveBoardBean;
         this.inquireDetailBoardBean = inquireDetailBoardBean;
-        this.showPreviewCashBoardBean = showPreviewCashBoardBean;
         this.modifyBoardBean = modifyBoardBean;
         this.deleteBoardBean = deleteBoardBean;
     }
 
-
-    // 메모장 데이터 저장
-    public Long saveBoardEntity(RequestBoardInput requestBoardInput){
-        return saveBoardBean.exec(requestBoardInput);
-    }
-
-    // 메모장 preview 조회
-    public List<RequestPreviewCashBoardAll> allCashBoardEntity(String userId){
-       return showPreviewCashBoardBean.exec(userId);
-    }
-
-    // 메모장 detail 조회
-    public RequestDetailBoardInquire inquireBoardEntity(long id, String userId){
+    // 메모 조회
+    public RequestDetailBoardInquire getBoardEntity(long id, String userId){
         return inquireDetailBoardBean.exec(id, userId);
     }
 
 
-    // 메모장 수정
+    // 메모 데이터 저장
+    public Long saveBoardEntity(RequestBoardInput requestBoardInput){
+        return saveBoardBean.exec(requestBoardInput);
+    }
+
+
+    // 메모 수정
     public Long modifyBoardEntity(RequestBoardModify requestBoardModify){
         return modifyBoardBean.exec(requestBoardModify);
     }
 
-    // 메모장 삭제
+
+    // 메모 삭제
     public Long deleteBoardEntity(RequestBoardDelete requestBoardDelete){
         return deleteBoardBean.exec(requestBoardDelete);
     }
-
 
 
     /*// 임시저장 데이터 저장
