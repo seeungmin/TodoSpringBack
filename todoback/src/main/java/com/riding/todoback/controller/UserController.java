@@ -65,7 +65,10 @@ public class UserController {
         requestMap.put("message", (id != null) ? "Login Success" : "Login Fail");
         requestMap.put("id", id);
 
-        return ResponseEntity.status(httpStatus).body(requestMap);
+        // 헤더 추가 및 Redirect:
+        HttpHeaders headers = new HttpHeaders();
+        headers.setLocation(URI.create("http://localhost:3333/"));
 
+        return ResponseEntity.status(httpStatus).headers(headers).body(requestMap);
     }
 }
