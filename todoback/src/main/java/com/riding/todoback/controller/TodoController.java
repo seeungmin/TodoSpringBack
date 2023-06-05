@@ -28,7 +28,7 @@ public class TodoController {
     // 할 일 조회
     @GetMapping("todos/user/{userId}")
     @ResponseBody
-    public List<RequestPreviewTodoAll> allPreviewTodo(@PathVariable String userId){
+    public List<RequestPreviewTodoAll> getTodos(@PathVariable String userId){
         return todoService.getTodosEntity(userId);
     }
 
@@ -38,7 +38,7 @@ public class TodoController {
     // 할 일 입력 후 저장
     @PostMapping("todo")
     @ResponseBody
-    public ResponseEntity<Map<String, Object>> todoInput(@RequestBody RequestTodoInput requestTodoInput){
+    public ResponseEntity<Map<String, Object>> saveTodo(@RequestBody RequestTodoInput requestTodoInput){
         Long id = todoService.saveTodoEntity(requestTodoInput);
 
         // HTTP 상태 반환
@@ -59,7 +59,7 @@ public class TodoController {
     // 할 일 데이터 수정
     @PutMapping("todo")
     @ResponseBody
-    public ResponseEntity<Map<String, Object>> todoModify(@RequestBody RequestTodoModify requestTodoModify){
+    public ResponseEntity<Map<String, Object>> modifyTodo(@RequestBody RequestTodoModify requestTodoModify){
         Long id = todoService.modifyTodoEntity(requestTodoModify);
 
         // HTTP 상태 반환
@@ -79,7 +79,7 @@ public class TodoController {
     // 할 일 삭제
     @DeleteMapping("todo")
     @ResponseBody
-    public ResponseEntity<Map<String, Object>> todoDelete(@RequestBody RequestTodoDelete requestTodoDelete){
+    public ResponseEntity<Map<String, Object>> deleteTodo(@RequestBody RequestTodoDelete requestTodoDelete){
         Long id = todoService.deleteTodoEntity(requestTodoDelete);
 
         // HTTP 상태 반환

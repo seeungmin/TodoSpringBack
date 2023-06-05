@@ -29,7 +29,7 @@ public class FinishTodoController {
     // 다 한 일 조회
     @GetMapping("finishTodos/user/{userId}")
     @ResponseBody
-    public List<RequestPreviewFinishTodoAll> allPreviewFinishTodo(@PathVariable String userId){
+    public List<RequestPreviewFinishTodoAll> getFinishTodos(@PathVariable String userId){
         return finishTodoService.getFinishTodosEntity(userId);
     }
 
@@ -39,7 +39,7 @@ public class FinishTodoController {
     // 다 한 일 입력 후 저장
     @PostMapping("finishTodo")
     @ResponseBody
-    public ResponseEntity<Map<String, Object>> finishedTodoInput(@RequestBody RequestFinishTodoInput requestFinishTodoInput){
+    public ResponseEntity<Map<String, Object>> saveFinishTodo(@RequestBody RequestFinishTodoInput requestFinishTodoInput){
         Long id = finishTodoService.saveFinishTodoEntity(requestFinishTodoInput);
 
         // HTTP 상태 반환
@@ -59,7 +59,7 @@ public class FinishTodoController {
     // 다 한 일 삭제
     @DeleteMapping("finishTodo")
     @ResponseBody
-    public ResponseEntity<Map<String, Object>> finishedTodoDelete(@RequestBody RequestFinishTodoDelete requestFinishTodoDelete){
+    public ResponseEntity<Map<String, Object>> deleteFinishTodo(@RequestBody RequestFinishTodoDelete requestFinishTodoDelete){
         Long id = finishTodoService.deleteFinishTodoEntity(requestFinishTodoDelete);
 
         // HTTP 상태 반환

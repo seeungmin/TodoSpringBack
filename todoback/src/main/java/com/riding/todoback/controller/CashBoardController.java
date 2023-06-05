@@ -25,7 +25,7 @@ public class CashBoardController {
     // 전채 메모 조회
     @GetMapping("cashBoards/user/{userId}")
     @ResponseBody
-    public List<RequestPreviewCashBoardAll> allPreviewCashBoard(@PathVariable String userId){
+    public List<RequestPreviewCashBoardAll> getCashBoards(@PathVariable String userId){
         return cashBoardService.getCashBoardsEntity(userId);
     }
 }

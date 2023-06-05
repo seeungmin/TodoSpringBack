@@ -28,14 +28,14 @@ public class BoardController {
     // 메모 조회
     @GetMapping("board/{id}/user/{userId}")
     @ResponseBody
-    public RequestDetailBoardInquire inquireDetailBoard(@PathVariable String userId, @PathVariable long id){
+    public RequestDetailBoardInquire getBoard(@PathVariable String userId, @PathVariable long id){
         return boardService.getBoardEntity(id, userId);
     }
 
 
     // 메모장 데이터 입력 저장 및 스토리보드 데이터 캐싱 후 저장
     @PostMapping("board")
-    public ResponseEntity<Map<String, Object>> boardInput(@RequestBody RequestBoardInput requestBoardInput){
+    public ResponseEntity<Map<String, Object>> saveBoard(@RequestBody RequestBoardInput requestBoardInput){
         Long id = boardService.saveBoardEntity(requestBoardInput);
 
         // HTTP 상태 반환
@@ -53,7 +53,7 @@ public class BoardController {
     // 메모장 데이터 수정 및 스토리보드 데이터 캐싱 후 저장
     @PutMapping("board")
     @ResponseBody
-    public ResponseEntity<Map<String, Object>> boardModify(@RequestBody RequestBoardModify requestBoardModify){
+    public ResponseEntity<Map<String, Object>> modifyBoard(@RequestBody RequestBoardModify requestBoardModify){
         Long id = boardService.modifyBoardEntity(requestBoardModify);
 
         // HTTP 상태 반환
@@ -71,7 +71,7 @@ public class BoardController {
     // 메모와 해당 캐시메모 삭제
     @DeleteMapping("board")
     @ResponseBody
-    public ResponseEntity<Map<String, Object>> todoDelete(@RequestBody RequestBoardDelete requestBoardDelete){
+    public ResponseEntity<Map<String, Object>> deleteBoard(@RequestBody RequestBoardDelete requestBoardDelete){
         Long id = boardService.deleteBoardEntity(requestBoardDelete);
 
         // HTTP 상태 반환
