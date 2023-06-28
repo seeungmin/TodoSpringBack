@@ -1,7 +1,34 @@
-# TodoSpringBack
+# SpringBoot-Project-Todo-Back
+스프링부트 + Todo프로젝트 백엔드
 
-## Todo 컨트롤러 예시
 
+## 프로젝트 소개
+메모 기능과 할 일을 계획하는 기능을 해주는 어플리케이션
+
+## 진행한 일
+- 프로젝트 전반적인 CRUD기능 구현
+- 가장 기본적인 기능들 test코드
+- 카카오톡 로그인 구현
+
+## 개발환경
+- java 8
+- jdk 1.8.0
+- Spring Boot
+- Maria DB
+
+## 주요기능
+#### 로그인
+
+#### 할 일 관리
+
+
+#### 다 한 일 관리
+
+
+#### 메모 관리
+
+
+## 개발 시 
 ### 기존 프로젝트 API 형태
 
 ![image](https://github.com/seeungmin/TodoSpringBack/assets/91742262/29b39f7f-7bfb-4afc-a4e3-525d32319e7a)
